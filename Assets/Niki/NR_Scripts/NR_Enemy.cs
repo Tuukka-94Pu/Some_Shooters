@@ -7,6 +7,9 @@ public class NR_Enemy : MonoBehaviour
 
     public Material normalMat;
     public Material hitMat;
+    
+    public Animator animator;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,8 +26,14 @@ public class NR_Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        Debug.Log("health:" + health);
+        Debug.Log("health: " + health);
+        animator.SetTrigger("TakeDamage");
+        
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    
+   
 }
