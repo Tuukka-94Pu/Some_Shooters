@@ -5,7 +5,7 @@ using UnityEngine;
 public class NR_Weapon : MonoBehaviour
 {
     
-    private bool isAnimating;
+    public bool isAnimating;
 
     public Animator animator;
 
@@ -13,6 +13,7 @@ public class NR_Weapon : MonoBehaviour
 
     List<GameObject> hitList = new List<GameObject>();
 
+    public float swingStartUp;
     public float swingLength;
 
     public float damage;
@@ -22,6 +23,8 @@ public class NR_Weapon : MonoBehaviour
     void Start()
     {
         hitbox.enabled = false;
+
+
     }
 
     // Update is called once per frame
@@ -37,11 +40,10 @@ public class NR_Weapon : MonoBehaviour
         }
     }
 
-    IEnumerator Swing()
+    IEnumerator SwingAfterDelay()
     {
-        animator.SetTrigger("Animate");
-        isAnimating = true;
-        hitbox.enabled = true;
+        
+        
 
         yield return new WaitForSeconds(swingLength);
         isAnimating = false;
@@ -64,5 +66,16 @@ public class NR_Weapon : MonoBehaviour
                 enemyScript.TakeDamage(damage);
             }
         }
+    }
+
+    IEnumerator Swing()
+    {
+        animator.SetTrigger("Animate");
+        isAnimating = true;
+
+        yield return new WaitForSeconds(swingStartUp);
+        hitbox.enabled = true;
+        StartCoroutine(SwingAfterDelay());
+
     }
 }
