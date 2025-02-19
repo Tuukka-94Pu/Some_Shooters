@@ -27,7 +27,7 @@ public class NR_Enemy : MonoBehaviour
     {
         health -= damage;
         Debug.Log("health: " + health);
-        animator.SetTrigger("TakeDamage");
+        animator.Play("Color", -1, 0f);
         
         if (health <= 0)
         {

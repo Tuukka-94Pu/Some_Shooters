@@ -40,20 +40,8 @@ public class NR_Weapon : MonoBehaviour
         }
     }
 
-    IEnumerator SwingAfterDelay()
-    {
-        
-        
-
-        yield return new WaitForSeconds(swingLength);
-        isAnimating = false;
-        hitbox.enabled = false;
-
-        for (int i = 0; i < hitList.Count; i++) 
-        {
-            hitList.Remove(hitList[i]);
-        }
-    }
+    
+    
 
     void OnTriggerEnter(Collider collision)
     {
@@ -75,7 +63,15 @@ public class NR_Weapon : MonoBehaviour
 
         yield return new WaitForSeconds(swingStartUp);
         hitbox.enabled = true;
-        StartCoroutine(SwingAfterDelay());
+
+        yield return new WaitForSeconds(swingLength);
+        isAnimating = false;
+        hitbox.enabled = false;
+
+        for (int i = 0; i < hitList.Count; i++)
+        {
+            hitList.Remove(hitList[i]);
+        }
 
     }
 }

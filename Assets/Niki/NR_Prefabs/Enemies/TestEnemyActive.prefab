@@ -232,7 +232,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4126358820903170352}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -249,7 +249,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &6497499184732878745
 MonoBehaviour:
@@ -304,6 +304,15 @@ MonoBehaviour:
   active: 0
   rotationSpeed: 1
   movementSpeed: 1
+  attacking: 0
+  attackHit: 0
+  enemyScript: {fileID: 6497499184732878745}
+  playerStats: {fileID: 0}
+  activeArea: {fileID: 2601668307042424321}
+  hitbox: {fileID: 5488187776472711762}
+  attackCooldown: 0
+  attackRange: 2
+  damage: 20
 --- !u!1 &6585810926579990803
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +324,6 @@ GameObject:
   - component: {fileID: 247989040662180065}
   - component: {fileID: 272506225887136964}
   - component: {fileID: 8226484296871701949}
-  - component: {fileID: 1963767329433333691}
   m_Layer: 0
   m_Name: nose
   m_TagString: Untagged
@@ -391,27 +399,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1963767329433333691
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6585810926579990803}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7455703283650994872
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,8 +427,8 @@ Transform:
   m_GameObject: {fileID: 7455703283650994872}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.584, y: -0.056391012, z: -0.045999527}
-  m_LocalScale: {x: 0.2929, y: 0.7726614, z: 0.2929}
+  m_LocalPosition: {x: 0.584, y: -0.5164, z: -0.045999527}
+  m_LocalScale: {x: 0.2929, y: 1.6929045, z: 0.2929}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5759533457366141072}
@@ -514,9 +501,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

@@ -8,15 +8,26 @@ public class CameraLook : MonoBehaviour
 
     private float xRotation = 0.0f;
 
+    private NR_PlayerStats playerStats;
+
     private void Start()
     {
+        
         playerBody = transform.parent;
         Cursor.lockState = CursorLockMode.Locked; // lukitse kursori keskelle ruutua
+        playerStats = GameObject.Find("Player").GetComponent<NR_PlayerStats>();
     }
 
     private void Update()
     {
-        RotateCamera();
+        if (playerStats.dead == false)
+        {
+            RotateCamera();
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     private void RotateCamera()
