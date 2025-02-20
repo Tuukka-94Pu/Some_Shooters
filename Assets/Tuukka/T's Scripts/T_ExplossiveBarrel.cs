@@ -1,12 +1,8 @@
-using Unity.Mathematics;
 using UnityEngine;
 
-public class T_EnemyBeans : MonoBehaviour,IDamageable
+public class T_ExplossiveBarrel : MonoBehaviour,IDamageable
 {
-
-
-    public float health = 100.0f;
-    public GameObject droppedItem;
+    public float health = 30;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,24 +13,15 @@ public class T_EnemyBeans : MonoBehaviour,IDamageable
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     public void TakeDamage(float damageAmount)
-
     {
-
         health -= damageAmount;
 
-        Debug.Log("Enemy health is: " + health);
-
-        if (health <= 0)
-
+        if(health < 0 ) 
         {
-            Instantiate(droppedItem,transform.position,transform.rotation);
             Destroy(gameObject);
-
         }
-
     }
 }
-
