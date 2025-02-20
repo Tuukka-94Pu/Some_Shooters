@@ -30,7 +30,7 @@ public class T_EnemyBeans : MonoBehaviour,IDamageable
         if (health <= 0)
 
         {
-            Instantiate(droppedItem);
+            Instantiate(droppedItem,transform.position,transform.rotation);
             Destroy(gameObject);
 
         }
