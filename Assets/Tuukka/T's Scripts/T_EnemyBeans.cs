@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class T_EnemyBeans : MonoBehaviour
+public class T_EnemyBeans : MonoBehaviour,IDamageable
 {
 
 
