@@ -154,7 +154,9 @@ MonoBehaviour:
   hitbox: {fileID: 1992859535809110071}
   swingStartUp: 0.25
   swingLength: 0.41
-  damage: 10
+  damage: 20
+  staminaChargeRate: 5
+  stunTime: 0.5
 --- !u!65 &1992859535809110071
 BoxCollider:
   m_ObjectHideFlags: 0

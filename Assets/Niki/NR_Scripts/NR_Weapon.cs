@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class NR_Weapon : MonoBehaviour
 {
@@ -17,20 +18,25 @@ public class NR_Weapon : MonoBehaviour
     public float swingLength;
 
     public float damage;
+    public float staminaChargeRate;
 
+    public float stunTime;
+
+    private NR_PlayerStats playerStats;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         hitbox.enabled = false;
 
-
+        playerStats = GameObject.Find("Player").GetComponent<NR_PlayerStats>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && playerStats.dead == false)
         {
             if (isAnimating == false)
             {
@@ -38,6 +44,16 @@ public class NR_Weapon : MonoBehaviour
             }
             Debug.Log("Clicked");
         }
+
+
+        if (playerStats.dead == false && playerStats.outOfBreath == false && isAnimating == false)
+        {
+            if(playerStats.stamina < playerStats.maxStamina)
+            {
+                playerStats.stamina += staminaChargeRate * Time.deltaTime;
+            }
+        }
+
     }
 
     
@@ -51,8 +67,19 @@ public class NR_Weapon : MonoBehaviour
             {
                 hitList.Add(collision.gameObject);
                 NR_Enemy enemyScript = collision.gameObject.GetComponent<NR_Enemy>();
-                enemyScript.TakeDamage(damage);
+
+                enemyScript.TakeDamage(Mathf.Round(damage * playerStats.stamina));
+
+                StartCoroutine(DamageStun());
+                
+                IEnumerator DamageStun()
+                {
+                    enemyScript.takingDamage = true;
+                    yield return new WaitForSeconds(stunTime);
+                    enemyScript.takingDamage = false;
+                }
             }
+
         }
     }
 
@@ -72,6 +99,8 @@ public class NR_Weapon : MonoBehaviour
         {
             hitList.Remove(hitList[i]);
         }
-
+        playerStats.stamina = 0f;
     }
+
+    
 }
