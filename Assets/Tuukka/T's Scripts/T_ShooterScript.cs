@@ -20,12 +20,14 @@ public class T_ShooterScript : MonoBehaviour
 
     public GameObject OOA;
 
+
   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ammoCount = 10;
+        
         coroutine = waitForRecoil(2);
     }
 
@@ -68,8 +70,11 @@ public class T_ShooterScript : MonoBehaviour
     }
     public void Recoil()
     {
+        
         gun.transform.Rotate(-5,0,0);
+        
         StartCoroutine(waitForRecoil(0.2f));
+        
     }
     IEnumerator waitForRecoil(float recoil)
     {
