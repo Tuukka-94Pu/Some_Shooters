@@ -9,7 +9,7 @@ public class T_AnyFrags : MonoBehaviour
     public float damageAmount = 50f;
     public LayerMask damageableLayer;
 
-    private bool hasExploded = false;
+    public bool hasExploded = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -58,6 +58,8 @@ public class T_AnyFrags : MonoBehaviour
             }
 
         }
+
+        
 
         hasExploded = true;
 

@@ -7,8 +7,7 @@ public class T_FragOut : MonoBehaviour
     public float throwForce = 10f;
     public int fragCount = 2;
     public GameObject OOF;
-
-
+    
     private void Awake()
 
     {
@@ -29,6 +28,9 @@ public class T_FragOut : MonoBehaviour
     void Update()
 
     {
+
+        
+
         if(fragCount == 0)
         {
             OOF.SetActive(true);
@@ -47,6 +49,7 @@ public class T_FragOut : MonoBehaviour
 
         {
             fragCount--;
+            
             ThrowGrenade();
 
         }
