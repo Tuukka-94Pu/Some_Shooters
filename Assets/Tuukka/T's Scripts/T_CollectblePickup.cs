@@ -23,7 +23,7 @@ public class T_CollectblePickup : MonoBehaviour
         if (other.gameObject.tag == "coin")
         {
             score++;
-            scoreText.text = "" + score;
+            scoreText.text =  score.ToString();
             Destroy(other.gameObject);
             
         }
