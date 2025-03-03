@@ -2587,7 +2587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4982cb22830634db82471ba7c71391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grenadePrefab: {fileID: 2064269548337599299, guid: 2b5dda5e68f99364f901a5f01309ac5c, type: 3}
+  grenadePrefab: {fileID: 2401348671413831046, guid: 2b5dda5e68f99364f901a5f01309ac5c, type: 3}
   playerCamera: {fileID: 1574952450}
   throwForce: 10
   fragCount: 2
@@ -3993,7 +3993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2759619398685543497, guid: 4c412e0ff771714418a544a1e3deeaae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.527
+      value: 0.374
       objectReference: {fileID: 0}
     - target: {fileID: 2759619398685543497, guid: 4c412e0ff771714418a544a1e3deeaae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4112,6 +4112,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8232084304602620064, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232084304602620064, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
+      propertyPath: near clip plane
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4212,7 +4220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3845926753659108334, guid: 9f7184ea43dab6844939faf5d9969ce5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.825
+      value: 0.441
       objectReference: {fileID: 0}
     - target: {fileID: 3845926753659108334, guid: 9f7184ea43dab6844939faf5d9969ce5, type: 3}
       propertyPath: m_LocalPosition.z
