@@ -279,7 +279,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1473,7 +1473,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2393,6 +2393,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreNumber: {fileID: 1396775504}
   ammoNumber: {fileID: 988032949}
+--- !u!114 &1468474949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468474924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4982cb22830634db82471ba7c71391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenadePrefab: {fileID: 2029078631207328476, guid: 3c235805470140441807b354357c3387, type: 3}
+  playerCamera: {fileID: 1574952450}
+  throwForce: 20
 --- !u!1 &1495589862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,6 +2520,11 @@ Transform:
 --- !u!4 &1574952446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8390760124191450163, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
+  m_PrefabInstance: {fileID: 1914209432937528504}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1574952450 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8232084304602620064, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
   m_PrefabInstance: {fileID: 1914209432937528504}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1618872566 stripped
@@ -3078,7 +3098,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -3623,6 +3643,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7568168267151027441, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1468474941}
+    - targetCorrespondingSourceObject: {fileID: 7568168267151027441, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1468474949}
   m_SourcePrefab: {fileID: 100100000, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
 --- !u!1001 &2082000746449990010
 PrefabInstance:
@@ -3683,6 +3706,10 @@ PrefabInstance:
     - target: {fileID: 7067739327736038963, guid: e5cf86278db3c1e47b2134f091358a39, type: 3}
       propertyPath: m_Name
       value: spoiled_bean
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067739327736038963, guid: e5cf86278db3c1e47b2134f091358a39, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
