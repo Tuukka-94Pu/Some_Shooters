@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5.0f;
+    public float walkSpeed = 5f;
+    public float runSpeed = 7f;
 
     private CharacterController characterController;
 
@@ -24,7 +27,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded;
 
-    private float gravity = -50f; // saatat joutua t‰t‰ s‰‰t‰m‰‰n fysiikan simuloimiseksi
+    private float gravity = -9.81f; // saatat joutua t‰t‰ s‰‰t‰m‰‰n fysiikan simuloimiseksi
+
+    public float staminaDepletionRate = 3f;
 
     private void Start()
     {
@@ -49,6 +54,18 @@ public class PlayerMovement : MonoBehaviour
             MovePlayer();
         }
 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = runSpeed;
+            playerStats.outOfBreath = true;
+
+            playerStats.stamina -= staminaDepletionRate * Time.deltaTime;
+        }
+        else
+        {
+            speed = walkSpeed;
+            playerStats.outOfBreath = false;
+        }
         
     }
 
@@ -62,8 +79,8 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f; // pid‰ hahmo maassa
         }
 
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         Vector3 forwardDirection = cameraTransform.forward;
         Vector3 rightDirection = cameraTransform.right;

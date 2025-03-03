@@ -9,7 +9,9 @@ public class NR_Enemy : MonoBehaviour
     public Material hitMat;
     
     public Animator animator;
-    
+    public ParticleSystem deathParticle;
+
+    public bool takingDamage = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +31,7 @@ public class NR_Enemy : MonoBehaviour
         Debug.Log("health: " + health);
         animator.Play("Color", -1, 0f);
         
+
         if (health <= 0)
         {
             Die();
@@ -37,6 +40,9 @@ public class NR_Enemy : MonoBehaviour
 
    public void Die()
     {
+        Instantiate(deathParticle, transform.position, transform.rotation);
         Destroy(gameObject);
     }
+
+    
 }

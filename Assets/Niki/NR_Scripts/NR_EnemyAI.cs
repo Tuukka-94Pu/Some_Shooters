@@ -27,6 +27,7 @@ public class NR_EnemyAI : MonoBehaviour
     public float damage = 20f;
 
     
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,7 +39,7 @@ public class NR_EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (active == true && attacking == false)
+        if (active == true && attacking == false && enemyScript.takingDamage == false)
         {
             float distanceFromPlayer = Vector3.Distance(playerPos.position, transform.position);
 
@@ -51,16 +52,12 @@ public class NR_EnemyAI : MonoBehaviour
             float angleToPlayer = Vector3.Angle(transform.forward, relativePos);
             Vector3 turnAxis = Vector3.Cross(transform.forward, relativePos);
 
-            if (transform.rotation.y != 0)
-            {
-                rotation.y = 0;
-            }
+            
 
-            if (angleToPlayer < 90 && attacking == false)
+            if (angleToPlayer < 90 && attacking == false && distanceFromPlayer > attackRange)
             {
                 transform.position = Vector3.MoveTowards(transform.position, playerPos.transform.position, Time.deltaTime * movementSpeed);
 
-                
             }
 
             if (distanceFromPlayer < attackRange && angleToPlayer < 50 && attackCooldown == false)

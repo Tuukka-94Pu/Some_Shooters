@@ -1,14 +1,22 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class NR_PlayerStats : MonoBehaviour
 {
     public float maxHealth = 100f;
     public float health = 100f;
+
+    public float maxStamina = 10f;
+    public float stamina = 10f;
+    public bool outOfBreath = false;
+
     public Image healthBar;
     public Image damageFlash;
     public Animator animator;
+
+    public Image staminaBar;
 
     public bool dead;
 
@@ -29,6 +37,13 @@ public class NR_PlayerStats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             Heal(20);
+        }
+
+        staminaBar.fillAmount = stamina / maxStamina;
+
+        if (stamina < 0)
+        {
+            stamina = 0;
         }
     }
 

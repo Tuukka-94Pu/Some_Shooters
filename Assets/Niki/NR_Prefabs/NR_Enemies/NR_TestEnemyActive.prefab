@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 8991367913552369197}
   - component: {fileID: 9004204133332492809}
   m_Layer: 0
-  m_Name: TestEnemyActive
+  m_Name: NR_TestEnemyActive
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,7 +232,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4126358820903170352}
   serializedVersion: 4
-  m_Mass: 100
+  m_Mass: 500
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -263,10 +263,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f623b1dd9f314f44ba93381a8aaa06b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 500
   normalMat: {fileID: 2100000, guid: e6d9758ab46a5264ba58acf8d8ab521d, type: 2}
   hitMat: {fileID: 2100000, guid: 46620822ed48d4d4c8c46f8c42937559, type: 2}
   animator: {fileID: 8991367913552369197}
+  deathParticle: {fileID: 437017278967116803, guid: fe2dc8e96de550b458863ad6806fec49, type: 3}
 --- !u!95 &8991367913552369197
 Animator:
   serializedVersion: 7
