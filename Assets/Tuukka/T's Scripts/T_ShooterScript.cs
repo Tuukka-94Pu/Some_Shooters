@@ -10,10 +10,12 @@ public class T_ShooterScript : MonoBehaviour
     public Camera fpsCamera;
 
     public LayerMask shootingLayer;
+
+    public int ammoCount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        ammoCount = 10;
     }
 
     // Update is called once per frame
@@ -21,12 +23,16 @@ public class T_ShooterScript : MonoBehaviour
 
     {
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1")&& ammoCount > 0)
 
         {
 
             Shoot();
-
+            ammoCount --;
+        }
+        if(Input.GetButtonDown("Fire1") && ammoCount == 0)
+        {
+            Debug.Log("Out of ammo!");
         }
 
     }
