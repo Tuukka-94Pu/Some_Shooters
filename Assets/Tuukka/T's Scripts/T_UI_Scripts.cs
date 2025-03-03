@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SocialPlatforms.Impl;
+using static Unity.VisualScripting.Member;
 
 public class T_UI_Scripts : MonoBehaviour
 {
@@ -12,14 +13,16 @@ public class T_UI_Scripts : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameObject source = GameObject.Find("bean");
-        scoreValue = source.GetComponent<T_CollectblePickup>().score;
+        
+     
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        GameObject source = GameObject.Find("bean");
+        scoreValue = source.GetComponent<T_CollectblePickup>().score;
         scoreNumber.text = scoreValue.ToString();
     }
 }

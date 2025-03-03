@@ -1857,9 +1857,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b776a7ba9cdb9024cb0c52906c885ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreNumber: {fileID: 0}
-  ammoNumber: {fileID: 0}
-  source: {fileID: 0}
+  scoreNumber: {fileID: 1396775504}
+  scoreValue: 0
 --- !u!1 &1495589862
 GameObject:
   m_ObjectHideFlags: 0
