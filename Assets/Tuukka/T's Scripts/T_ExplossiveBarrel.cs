@@ -3,7 +3,7 @@ using UnityEngine;
 public class T_ExplossiveBarrel : MonoBehaviour,IDamageable
 {
     public float health = 30;
-
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,7 +21,10 @@ public class T_ExplossiveBarrel : MonoBehaviour,IDamageable
 
         if(health < 0 ) 
         {
+            
             Destroy(gameObject);
         }
     }
-}
+    
+    }
+
