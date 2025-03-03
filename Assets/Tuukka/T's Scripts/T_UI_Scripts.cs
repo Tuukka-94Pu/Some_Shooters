@@ -6,14 +6,16 @@ public class T_UI_Scripts : MonoBehaviour
 {
     public TMP_Text scoreNumber;
     public TMP_Text ammoNumber;
+    public TMP_Text fragText;
     private int scoreValue;
     private int ammo;
+    private int fragAmount;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         
-     
 
     }
 
@@ -23,7 +25,26 @@ public class T_UI_Scripts : MonoBehaviour
         GameObject source = GameObject.Find("bean");
         scoreValue = source.GetComponent<T_CollectblePickup>().score;
         ammo = source.GetComponent<T_ShooterScript>().ammoCount;
+        fragAmount = source.GetComponent<T_FragOut>().fragCount;
         scoreNumber.text = scoreValue.ToString();
         ammoNumber.text = ammo.ToString();
+        fragText.text = fragAmount.ToString();
+        
+        if (ammo == 0)
+        {
+            ammoNumber.color = new Color(255, 0, 0);
+        }
+        else
+        {
+            ammoNumber.color = new Color(0, 255, 0);
+        }
+        if(fragAmount == 0)
+        {
+            fragText.color = new Color(255, 0,0);
+        }
+        else
+        {
+            fragText.color = new Color(0,255,0);
+        }
     }
 }

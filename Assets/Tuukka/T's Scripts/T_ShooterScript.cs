@@ -18,6 +18,10 @@ public class T_ShooterScript : MonoBehaviour
 
     private IEnumerator coroutine;
 
+    public GameObject OOA;
+
+  
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,8 +31,20 @@ public class T_ShooterScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-
+        
     {
+       
+
+        if (ammoCount == 0)
+        {
+            OOA.SetActive(true);
+        }
+        else
+        {
+            OOA.SetActive(false);
+        }
+
+
 
         if (Input.GetButtonDown("Fire1")&& ammoCount > 0)
 
@@ -40,7 +56,7 @@ public class T_ShooterScript : MonoBehaviour
         }
         if(Input.GetButtonDown("Fire1") && ammoCount == 0)
         {
-            Debug.Log("Out of ammo!");
+            
         }
 
     }
@@ -48,6 +64,7 @@ public class T_ShooterScript : MonoBehaviour
     public void addAmmo()
     {
         ammoCount += 5;
+        
     }
     public void Recoil()
     {

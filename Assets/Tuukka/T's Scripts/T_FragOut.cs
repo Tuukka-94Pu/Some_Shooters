@@ -5,8 +5,8 @@ public class T_FragOut : MonoBehaviour
     public GameObject grenadePrefab;
     public Camera playerCamera;
     public float throwForce = 10f;
-
-
+    public int fragCount = 2;
+    public GameObject OOF;
 
 
     private void Awake()
@@ -29,11 +29,24 @@ public class T_FragOut : MonoBehaviour
     void Update()
 
     {
+        if(fragCount == 0)
+        {
+            OOF.SetActive(true);
+        }
+        else
+        {
+            OOF.SetActive(false);
+        }
 
-        if (Input.GetButtonDown("Fire2") && grenadePrefab != null)
+
+
+
+
+
+        if (Input.GetButtonDown("Fire2") && grenadePrefab != null && fragCount > 0)
 
         {
-
+            fragCount--;
             ThrowGrenade();
 
         }
@@ -50,5 +63,9 @@ public class T_FragOut : MonoBehaviour
         {
             rb.AddForce(playerCamera.transform.forward * throwForce, ForceMode.VelocityChange);
         }
+    }
+       public void addFrags()
+    {
+        fragCount++;
     }
 }   
