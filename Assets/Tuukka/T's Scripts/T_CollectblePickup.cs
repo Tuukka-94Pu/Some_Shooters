@@ -5,7 +5,7 @@ using UnityEngine;
 public class T_CollectblePickup : MonoBehaviour
 {
     public int score;
-
+    private T_ShooterScript shooter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,9 +22,16 @@ public class T_CollectblePickup : MonoBehaviour
     {
         if (other.gameObject.tag == "coin")
         {
-            score++;
+            score ++;
             Destroy(other.gameObject);
             
+        }
+        if (other.gameObject.tag == "ammoPickup")
+        {
+            GameObject ammoRoot = GameObject.Find("bean");
+           shooter = ammoRoot.GetComponent<T_ShooterScript>();
+            shooter.addAmmo();
+            Destroy(other.gameObject);
         }
 
     }

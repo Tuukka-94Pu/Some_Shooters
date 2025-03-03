@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class T_ShooterScript : MonoBehaviour
@@ -12,10 +13,16 @@ public class T_ShooterScript : MonoBehaviour
     public LayerMask shootingLayer;
 
     public int ammoCount;
+
+    public GameObject gun;
+
+    private IEnumerator coroutine;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ammoCount = 10;
+        coroutine = waitForRecoil(2);
     }
 
     // Update is called once per frame
@@ -28,6 +35,7 @@ public class T_ShooterScript : MonoBehaviour
         {
 
             Shoot();
+            Recoil();
             ammoCount --;
         }
         if(Input.GetButtonDown("Fire1") && ammoCount == 0)
@@ -36,6 +44,24 @@ public class T_ShooterScript : MonoBehaviour
         }
 
     }
+
+    public void addAmmo()
+    {
+        ammoCount += 5;
+    }
+    public void Recoil()
+    {
+        gun.transform.Rotate(-5,0,0);
+        StartCoroutine(waitForRecoil(0.2f));
+    }
+    IEnumerator waitForRecoil(float recoil)
+    {
+
+        yield return new WaitForSeconds(recoil);
+        gun.gameObject.transform.Rotate(5,0,0);
+    }
+
+
 
     void Shoot()
 
