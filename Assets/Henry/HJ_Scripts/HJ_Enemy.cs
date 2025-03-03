@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace HJ
 {
-    public class HJ_Enemy : MonoBehaviour
+    public class HJ_Enemy : MonoBehaviour, IDamageable
     {
         public float health = 100.0f;
         public void TakeDamage(float damageAmount)
