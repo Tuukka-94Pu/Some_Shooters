@@ -346,7 +346,7 @@ MonoBehaviour:
   groundDistance: 0.4
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
   groundCheck: {fileID: 7419900194099557898}
 --- !u!143 &5021381851625796664
 CharacterController:
@@ -391,3 +391,5 @@ MonoBehaviour:
   shootingLayer:
     serializedVersion: 2
     m_Bits: 64
+  ammoCount: 0
+  gun: {fileID: 0}
