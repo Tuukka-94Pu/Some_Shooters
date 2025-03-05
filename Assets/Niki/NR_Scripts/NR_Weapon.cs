@@ -68,18 +68,8 @@ public class NR_Weapon : MonoBehaviour
                 hitList.Add(collision.gameObject);
                 NR_Enemy enemyScript = collision.gameObject.GetComponent<NR_Enemy>();
 
-                enemyScript.TakeDamage(Mathf.Round(damage * playerStats.stamina));
-
-                StartCoroutine(DamageStun());
-                
-                IEnumerator DamageStun()
-                {
-                    enemyScript.takingDamage = true;
-                    yield return new WaitForSeconds(stunTime);
-                    enemyScript.takingDamage = false;
-                }
+                enemyScript.TakeDamage(Mathf.Round(damage * playerStats.stamina), stunTime);
             }
-
         }
     }
 

@@ -25,12 +25,20 @@ public class NR_Enemy : MonoBehaviour
         
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, float stunTime)
     {
         health -= damage;
         Debug.Log("health: " + health);
         animator.Play("Color", -1, 0f);
-        
+
+        StartCoroutine(DamageStun());
+
+        IEnumerator DamageStun()
+        {
+            takingDamage = true;
+            yield return new WaitForSeconds(stunTime);
+            takingDamage = false;
+        }
 
         if (health <= 0)
         {
@@ -39,10 +47,8 @@ public class NR_Enemy : MonoBehaviour
     }
 
    public void Die()
-    {
-        Instantiate(deathParticle, transform.position, transform.rotation);
-        Destroy(gameObject);
-    }
-
-    
+   {
+       Instantiate(deathParticle, transform.position, transform.rotation);
+       Destroy(gameObject);
+   }
 }
