@@ -76,16 +76,16 @@ public class T_ShooterScript : MonoBehaviour
         if (Input.GetButtonDown("Fire1")&& ammoCount > 0 && weapon == "Pistol")
 
         {
-            damage = 10.0f;
+            damage = 10.0f; 
             Shoot();
-            Recoil(5,0.3f);
+            Recoil(4,0.3f);
             ammoCount --;
         }
         if(Input.GetButtonDown("Fire1") && ammoCount > 0 && weapon == "Rifle")
         {
             damage = 25.0f;
             Shoot();
-            Recoil(2,0.1f);
+            Recoil(5,0.5f);
             ammoCount--;
         }
         
