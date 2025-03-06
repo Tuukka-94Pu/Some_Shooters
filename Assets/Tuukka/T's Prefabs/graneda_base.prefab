@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2401348671413831046}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.491, y: 0.554, z: -5.509672}
   m_LocalScale: {x: 0.2981845, y: 0.2981845, z: 0.2981845}
   m_ConstrainProportionsScale: 0
@@ -134,6 +134,7 @@ MonoBehaviour:
     m_Bits: 192
   type: Pipe
   hasExploded: 0
+  smoke: {fileID: 0}
 --- !u!54 &2628904916635069738
 Rigidbody:
   m_ObjectHideFlags: 0

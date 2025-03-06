@@ -14,27 +14,52 @@ public class T_ShooterScript : MonoBehaviour
 
     public int ammoCount;
 
-    public GameObject gun;
+    public GameObject Pistol;
+
+    public GameObject Rifle;
 
     private IEnumerator coroutine;
 
+    private IEnumerator weaponSwitch;
+
     public GameObject OOA;
 
-
+    private string weapon = "Pistol";
   
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ammoCount = 10;
-        
-        coroutine = waitForRecoil(2);
+        //Pistol = GameObject.Find("Pistol");
+        //Rifle = GameObject.Find("Rifle");
+        coroutine = waitForRecoil(2,0);
+        weaponSwitch = gunSwitchWait(0.5f);
     }
 
     // Update is called once per frame
     void Update()
         
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1)&& weapon != "Pistol")
+        {
+            Rifle.SetActive(false);
+            StartCoroutine(weaponSwitch);
+            Pistol.SetActive(true);
+            weapon = "Pistol";
+            Debug.Log("Pistol Equipped!");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2) && weapon != "Rifle")
+        {
+            Pistol.SetActive(false);
+            StartCoroutine(weaponSwitch);
+            Rifle.SetActive(true);
+            weapon = "Rifle";
+            Debug.Log("Rifle equipped!");
+        }
+       
        
 
         if (ammoCount == 0)
@@ -48,18 +73,22 @@ public class T_ShooterScript : MonoBehaviour
 
 
 
-        if (Input.GetButtonDown("Fire1")&& ammoCount > 0)
+        if (Input.GetButtonDown("Fire1")&& ammoCount > 0 && weapon == "Pistol")
 
         {
-
+            damage = 10.0f;
             Shoot();
-            Recoil();
+            Recoil(5,0.3f);
             ammoCount --;
         }
-        if(Input.GetButtonDown("Fire1") && ammoCount == 0)
+        if(Input.GetButtonDown("Fire1") && ammoCount > 0 && weapon == "Rifle")
         {
-            
+            damage = 25.0f;
+            Shoot();
+            Recoil(2,0.1f);
+            ammoCount--;
         }
+        
 
     }
 
@@ -68,19 +97,42 @@ public class T_ShooterScript : MonoBehaviour
         ammoCount += 5;
         
     }
-    public void Recoil()
+    public void Recoil(int recoil, float waitTime)
     {
-        
-        gun.transform.Rotate(-5,0,0);
-        
-        StartCoroutine(waitForRecoil(0.2f));
+        if(weapon == "Pistol")
+        {
+            Pistol.transform.Rotate(-recoil, 0, 0);
+
+            StartCoroutine(waitForRecoil(waitTime,recoil));
+
+        }
+        if(weapon == "Rifle")
+        {
+            Rifle.transform.Rotate(-recoil, 0, 0);
+
+            StartCoroutine(waitForRecoil(waitTime,recoil));
+        }
+       
         
     }
-    IEnumerator waitForRecoil(float recoil)
+    IEnumerator waitForRecoil(float wait,int lowering)
     {
+            if(weapon == "Pistol")
+        {
+            yield return new WaitForSeconds(wait);
+            Pistol.gameObject.transform.Rotate(lowering, 0, 0);
+        }
+        if((weapon == "Rifle"))
+        {
+            yield return new WaitForSeconds(wait);
+            Rifle.gameObject.transform.Rotate(lowering, 0, 0);
+        }
 
-        yield return new WaitForSeconds(recoil);
-        gun.gameObject.transform.Rotate(5,0,0);
+        
+    }
+     IEnumerator gunSwitchWait(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
     }
 
 

@@ -10,10 +10,11 @@ public class T_AnyFrags : MonoBehaviour
     public LayerMask damageableLayer;
     public string type;
     public bool hasExploded = false;
+ 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class T_AnyFrags : MonoBehaviour
         {
 
         yield return new WaitForSeconds(delay);
-
+        
         Explode();
 
         }
@@ -57,7 +58,7 @@ public class T_AnyFrags : MonoBehaviour
             {
                 rb.AddExplosionForce(explosionForce, transform.position, blastRadius);
             }
-
+            
 
 
             IDamageable damageable = nearbyObject.GetComponent<IDamageable>();
@@ -72,8 +73,9 @@ public class T_AnyFrags : MonoBehaviour
 
         
 
-        hasExploded = true;
 
+        hasExploded = true;
+        
         Destroy(gameObject);
     }
 
