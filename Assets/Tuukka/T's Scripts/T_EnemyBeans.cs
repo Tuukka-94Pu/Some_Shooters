@@ -8,7 +8,7 @@ public class T_EnemyBeans : MonoBehaviour,IDamageable
 
     public float health = 100.0f;
     public GameObject droppedItem;
-    
+    public Transform Target;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,7 +21,11 @@ public class T_EnemyBeans : MonoBehaviour,IDamageable
     // Update is called once per frame
     void Update()
     {
-        
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.destination = Target.position;
+
+
+
     }
     public void TakeDamage(float damageAmount)
 
@@ -40,6 +44,7 @@ public class T_EnemyBeans : MonoBehaviour,IDamageable
         }
 
     }
-  
+    
+
 }
 
