@@ -13,10 +13,12 @@ public class NR_Enemy : MonoBehaviour
 
     public bool takingDamage = false;
 
+    public NR_EnemyAI ai;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,13 @@ public class NR_Enemy : MonoBehaviour
         animator.Play("Color", -1, 0f);
 
         StartCoroutine(DamageStun());
+
+        ai = GetComponent<NR_EnemyAI>();
+
+        if (ai != null)
+        {
+            ai.Activate();
+        }
 
         IEnumerator DamageStun()
         {
