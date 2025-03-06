@@ -14,6 +14,8 @@ public class T_ShooterScript : MonoBehaviour
 
     public int ammoCount;
 
+    
+
     public GameObject Pistol;
 
     public GameObject Rifle;
@@ -25,42 +27,19 @@ public class T_ShooterScript : MonoBehaviour
     public GameObject OOA;
 
     private string weapon = "Pistol";
-  
-    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ammoCount = 10;
-        //Pistol = GameObject.Find("Pistol");
-        //Rifle = GameObject.Find("Rifle");
-        coroutine = waitForRecoil(2,0);
-        weaponSwitch = gunSwitchWait(0.5f);
+        coroutine = waitForRecoil(2, 0);
     }
 
     // Update is called once per frame
     void Update()
-        
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1)&& weapon != "Pistol")
-        {
-            Rifle.SetActive(false);
-            StartCoroutine(weaponSwitch);
-            Pistol.SetActive(true);
-            weapon = "Pistol";
-            Debug.Log("Pistol Equipped!");
-        }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && weapon != "Rifle")
-        {
-            Pistol.SetActive(false);
-            StartCoroutine(weaponSwitch);
-            Rifle.SetActive(true);
-            weapon = "Rifle";
-            Debug.Log("Rifle equipped!");
-        }
-       
-       
+    { 
 
         if (ammoCount == 0)
         {
@@ -70,9 +49,21 @@ public class T_ShooterScript : MonoBehaviour
         {
             OOA.SetActive(false);
         }
+        // Switch weapon if the weapon to be switched to is not the current one
+        if (Input.GetKeyDown(KeyCode.Alpha1)&& weapon != "Pistol")
+        {
+            Rifle.SetActive(false);
+            Pistol.SetActive(true);
+            weapon = "Pistol";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && weapon != "Rifle")
+        {
+            Pistol.SetActive(false);
+            Rifle.SetActive(true);
+            weapon = "Rifle";
+        }
 
-
-
+        //Fire the gun, weapon type determines damage and recoil
         if (Input.GetButtonDown("Fire1")&& ammoCount > 0 && weapon == "Pistol")
 
         {
@@ -97,6 +88,7 @@ public class T_ShooterScript : MonoBehaviour
         ammoCount += 5;
         
     }
+    //Apply recoil to weapon and start waitForRecoil coroutine
     public void Recoil(int recoil, float waitTime)
     {
         if(weapon == "Pistol")
@@ -115,6 +107,8 @@ public class T_ShooterScript : MonoBehaviour
        
         
     }
+
+    //When the coroutine ends , lower weapon down by the recoil amount 
     IEnumerator waitForRecoil(float wait,int lowering)
     {
             if(weapon == "Pistol")
@@ -128,15 +122,8 @@ public class T_ShooterScript : MonoBehaviour
             Rifle.gameObject.transform.Rotate(lowering, 0, 0);
         }
 
-        
     }
-     IEnumerator gunSwitchWait(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-    }
-
-
-
+    
     void Shoot()
 
     {
