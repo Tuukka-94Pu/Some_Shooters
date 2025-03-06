@@ -8,18 +8,29 @@ public class T_AnyFrags : MonoBehaviour
     public float explosionForce = 700f;
     public float damageAmount = 50f;
     public LayerMask damageableLayer;
-
+    public string type;
     public bool hasExploded = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StartCoroutine(ExplodeAfterDelay());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        GameObject source = GameObject.Find("bean");
+        type = source.GetComponent<T_FragOut>().type;
+
+        if (type == "Pipe")
+        {
+            StartCoroutine(ExplodeAfterDelay());
+        }
+        if (Input.GetKeyUp(KeyCode.Q) )
+        {
+            Explode();
+        }
+
     }
         IEnumerator ExplodeAfterDelay()
         {

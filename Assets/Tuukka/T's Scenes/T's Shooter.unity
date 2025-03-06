@@ -312,7 +312,7 @@ RectTransform:
   m_GameObject: {fileID: 206934318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.095836, y: 0.73210984, z: 1}
+  m_LocalScale: {x: 1.26, y: 0.73210984, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1630683189}
@@ -408,6 +408,10 @@ PrefabInstance:
     - target: {fileID: 7067739327736038963, guid: e5cf86278db3c1e47b2134f091358a39, type: 3}
       propertyPath: m_Name
       value: spoiled_bean (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067739327736038963, guid: e5cf86278db3c1e47b2134f091358a39, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1279,6 +1283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spoiled_bean (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7067739327736038963, guid: e5cf86278db3c1e47b2134f091358a39, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1907,14 +1915,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6671242, y: 0.6671242, z: 0.6671242}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1510196552}
   m_Father: {fileID: 2088014837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 196.6, y: 19.1}
+  m_AnchoredPosition: {x: 199.2, y: 17.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1224575682
@@ -1964,8 +1972,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 29
+  m_fontSizeBase: 29
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2002,7 +2010,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 93.96844, w: 0}
+  m_margin: {x: -47.219254, y: 0, z: 48.727245, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2050,7 +2058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 178.1, y: 54.5}
+  m_AnchoredPosition: {x: 178.1, y: 56.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1238570944
@@ -2647,6 +2655,7 @@ MonoBehaviour:
   scoreNumber: {fileID: 1396775504}
   ammoNumber: {fileID: 988032949}
   fragText: {fileID: 1510196553}
+  typeText: {fileID: 1224575682}
 --- !u!114 &1468474949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2659,11 +2668,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4982cb22830634db82471ba7c71391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grenadePrefab: {fileID: 2401348671413831046, guid: 2b5dda5e68f99364f901a5f01309ac5c, type: 3}
+  pipeGrenade: {fileID: 2401348671413831046, guid: 2b5dda5e68f99364f901a5f01309ac5c, type: 3}
+  remoteGrenade: {fileID: 4358026701865053698, guid: 289ed9edf21d21d458e37a1f9b4475ac, type: 3}
   playerCamera: {fileID: 1574952450}
   throwForce: 10
   fragCount: 2
   OOF: {fileID: 1238570942}
+  type: 
 --- !u!1 &1495589862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,7 +2818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33, y: -46}
+  m_AnchoredPosition: {x: 33, y: -34.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510196553
@@ -3417,6 +3428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spoiled_bean (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7067739327736038963, guid: e5cf86278db3c1e47b2134f091358a39, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3776,7 +3791,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ammo
+  m_text: Ammo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4269,6 +4284,10 @@ PrefabInstance:
     - target: {fileID: 7067739327736038963, guid: e5cf86278db3c1e47b2134f091358a39, type: 3}
       propertyPath: m_Name
       value: spoiled_bean
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067739327736038963, guid: e5cf86278db3c1e47b2134f091358a39, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7067739327736038963, guid: e5cf86278db3c1e47b2134f091358a39, type: 3}
       propertyPath: m_TagString

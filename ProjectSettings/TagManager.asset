@@ -9,6 +9,7 @@ TagManager:
   - coin
   - ammoPickup
   - fragPickup
+  - remotes
   layers:
   - Default
   - TransparentFX

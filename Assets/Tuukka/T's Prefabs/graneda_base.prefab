@@ -132,6 +132,8 @@ MonoBehaviour:
   damageableLayer:
     serializedVersion: 2
     m_Bits: 192
+  type: Pipe
+  hasExploded: 0
 --- !u!54 &2628904916635069738
 Rigidbody:
   m_ObjectHideFlags: 0

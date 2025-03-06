@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class T_FragOut : MonoBehaviour
 {
-    public GameObject grenadePrefab;
+    public GameObject pipeGrenade;
+    public GameObject remoteGrenade;
     public Camera playerCamera;
     public float throwForce = 10f;
     public int fragCount = 2;
     public GameObject OOF;
-    
+    public string type;
     private void Awake()
 
     {
@@ -21,14 +22,24 @@ public class T_FragOut : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        type = "Pipe";
     }
 
     // Update is called once per frame
     void Update()
 
     {
-
+        if(Input.GetKeyUp(KeyCode.Tab) ) 
+        {
+            if (type == "Remote" && GameObject.FindGameObjectWithTag("remotes") == null)
+            {
+                type = "Pipe";
+            }
+            else
+            {
+                type = "Remote";
+            }
+        }
         
 
         if(fragCount == 0)
@@ -45,7 +56,7 @@ public class T_FragOut : MonoBehaviour
 
 
 
-        if (Input.GetButtonDown("Fire2") && grenadePrefab != null && fragCount > 0)
+        if (Input.GetButtonDown("Fire2") && pipeGrenade != null && fragCount > 0)
 
         {
             fragCount--;
@@ -57,14 +68,29 @@ public class T_FragOut : MonoBehaviour
     void ThrowGrenade()
 
     {
-
-        GameObject grenade = Instantiate(grenadePrefab, playerCamera.transform.position + playerCamera.transform.forward, Quaternion.identity);
-        Rigidbody rb = grenade.GetComponent<Rigidbody>();
-
-        if (rb != null)
-
+        if (type == "Pipe" || remoteGrenade == null)
         {
-            rb.AddForce(playerCamera.transform.forward * throwForce, ForceMode.VelocityChange);
+
+
+            GameObject grenade = Instantiate(pipeGrenade, playerCamera.transform.position + playerCamera.transform.forward, Quaternion.identity);
+            Rigidbody rb = grenade.GetComponent<Rigidbody>();
+
+            if (rb != null)
+
+            {
+                rb.AddForce(playerCamera.transform.forward * throwForce, ForceMode.VelocityChange);
+            }
+        }
+        if(type == "Remote" ||pipeGrenade == null)
+        {
+            GameObject remotegrenade = Instantiate(remoteGrenade, playerCamera.transform.position + playerCamera.transform.forward, Quaternion.identity);
+            Rigidbody rb = remotegrenade.GetComponent<Rigidbody>();
+
+            if (rb != null)
+
+            {
+                rb.AddForce(playerCamera.transform.forward * throwForce, ForceMode.VelocityChange);
+            }
         }
     }
        public void addFrags()
