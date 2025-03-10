@@ -15,7 +15,12 @@ public class T_PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
+    }
 
+    public void TakeAHit(int damage)
+    {
+        playerHP -= damage;
     }
 }
