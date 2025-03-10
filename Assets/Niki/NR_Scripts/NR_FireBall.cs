@@ -10,6 +10,8 @@ public class NR_FireBall : MonoBehaviour
 
     private bool hasExploded = false;
 
+    public ParticleSystem fireballExplosion;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +43,7 @@ public class NR_FireBall : MonoBehaviour
                 enemy.TakeDamage(damage, stunTime);
             }
         }
+        Instantiate(fireballExplosion, transform.position, transform.rotation);
 
         hasExploded = true;
         Destroy(gameObject);

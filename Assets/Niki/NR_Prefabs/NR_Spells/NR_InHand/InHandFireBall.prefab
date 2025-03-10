@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4973613878751609324}
   - component: {fileID: 1638281053063409082}
   - component: {fileID: 8749758034008711794}
-  - component: {fileID: 3153203238080229468}
+  - component: {fileID: 4955524383513340849}
   m_Layer: 0
   m_Name: InHandFireBall
   m_TagString: Untagged
@@ -87,24 +87,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3153203238080229468
-SphereCollider:
+--- !u!114 &4955524383513340849
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4346190203487002645}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1f5894a0056d44e8acf5de8a1219a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeSpellPrefab: {fileID: 7515051499081781144, guid: 8cf12133292518b4d904dacaa26b9e02, type: 3}
+  playerStats: {fileID: 0}
+  playerCamera: {fileID: 0}
+  meshRenderer: {fileID: 8749758034008711794}
+  cooldown: 5
+  onCooldown: 0
+  manaCost: 30

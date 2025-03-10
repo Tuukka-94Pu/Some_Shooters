@@ -10,11 +10,11 @@ public class NR_Weapon : MonoBehaviour
 
     public Animator animator;
 
-    public BoxCollider hitbox;
+    
 
     List<GameObject> hitList = new List<GameObject>();
 
-    public float swingStartUp;
+    
     public float swingLength;
 
     public float damage;
@@ -28,7 +28,7 @@ public class NR_Weapon : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        hitbox.enabled = false;
+        
 
         playerStats = GameObject.Find("Player").GetComponent<NR_PlayerStats>();
     }
@@ -78,12 +78,12 @@ public class NR_Weapon : MonoBehaviour
         animator.SetTrigger("Animate");
         isAnimating = true;
 
-        yield return new WaitForSeconds(swingStartUp);
-        hitbox.enabled = true;
+        
+        
 
         yield return new WaitForSeconds(swingLength);
         isAnimating = false;
-        hitbox.enabled = false;
+        
 
         for (int i = 0; i < hitList.Count; i++)
         {

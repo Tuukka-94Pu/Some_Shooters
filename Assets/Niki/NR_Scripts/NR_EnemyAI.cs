@@ -1,10 +1,14 @@
 using System.Collections;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NR_EnemyAI : MonoBehaviour
 {
 
     public bool active;
+
+    private NavMeshAgent agent;
 
     private GameObject player;
     private Transform playerPos;
@@ -13,11 +17,15 @@ public class NR_EnemyAI : MonoBehaviour
 
     public bool attacking = false;
     public bool attackHit = false;
+    public float attackStartup =  0.13f;
+    public float attackDuration = 0.2f;
+    public float attackRecovery = 0.75f;
+    public float attackCooldownTime = 0.5f;
 
     public NR_Enemy enemyScript;
     public NR_PlayerStats playerStats;
 
-    public GameObject activeArea;
+    
     public BoxCollider hitbox;
 
     public bool attackCooldown;
@@ -26,12 +34,17 @@ public class NR_EnemyAI : MonoBehaviour
 
     public float damage = 20f;
 
-    
+    public float distanceFromPlayer;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        enemyScript = GetComponent<NR_Enemy>();
+        player = GameObject.Find("Player");
+        playerStats = player.GetComponent<NR_PlayerStats>();
+        agent = GetComponent<NavMeshAgent>();
+
         hitbox.enabled = false;
         active = false;
     }
@@ -39,24 +52,70 @@ public class NR_EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerPos = player.transform;
+        distanceFromPlayer = Vector3.Distance(playerPos.position, transform.position);
+        if (distanceFromPlayer < 10)
+        {
+            Activate();
+        }
+
         if (active == true && attacking == false && enemyScript.takingDamage == false)
         {
-            float distanceFromPlayer = Vector3.Distance(playerPos.position, transform.position);
+
 
             Vector3 relativePos = playerPos.position - transform.position;
             Quaternion rotation = Quaternion.LookRotation(relativePos);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
 
-            
+
 
             float angleToPlayer = Vector3.Angle(transform.forward, relativePos);
             Vector3 turnAxis = Vector3.Cross(transform.forward, relativePos);
 
-            
+
 
             if (angleToPlayer < 90 && attacking == false && distanceFromPlayer > attackRange)
             {
-                transform.position = Vector3.MoveTowards(transform.position, playerPos.transform.position, Time.deltaTime * movementSpeed);
+                agent.destination = playerPos.position;
+                agent.isStopped = false;
+            }
+            else
+            {
+                agent.isStopped = true;
+            }
+
+            if (distanceFromPlayer < attackRange && angleToPlayer < 50 && attackCooldown == false)
+            {
+                StartCoroutine(Attack(attackStartup, attackDuration, attackRecovery, attackCooldownTime));
+
+                Debug.Log("Attack");
+            }
+
+
+        }
+
+    }
+
+    void ActivatedMovement()
+    {
+        if (active == true && attacking == false && enemyScript.takingDamage == false)
+        {
+
+
+            Vector3 relativePos = playerPos.position - transform.position;
+            Quaternion rotation = Quaternion.LookRotation(relativePos);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+
+
+
+            float angleToPlayer = Vector3.Angle(transform.forward, relativePos);
+            Vector3 turnAxis = Vector3.Cross(transform.forward, relativePos);
+
+
+
+            if (angleToPlayer < 90 && attacking == false && distanceFromPlayer > attackRange)
+            {
+                agent.destination = playerPos.position;
 
             }
 
@@ -71,26 +130,13 @@ public class NR_EnemyAI : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") && active == false)
-        {
-            player = other.gameObject;
-            playerStats = other.GetComponent<NR_PlayerStats>();
-
-            StartCoroutine(DespawnArea(0.1f));
-            
-            playerPos = other.transform;
-            
-        }
-    }
 
 
 
-    private void Activate()
+    public void Activate()
     {
         active = true;
-        activeArea.SetActive(false);
+        
     }
 
     IEnumerator Attack(float startUp, float duration, float recovery, float cooldown)
@@ -115,9 +161,6 @@ public class NR_EnemyAI : MonoBehaviour
         attackHit = false;
     }
 
-    IEnumerator DespawnArea(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        Activate();
-    }
+
+    
 }
