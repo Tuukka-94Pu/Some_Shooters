@@ -78,6 +78,7 @@ public class T_ShooterScript : MonoBehaviour
             Shoot();
             Recoil(5,0.5f);
             ammoCount--;
+            ammoCount--;
         }
         
 
