@@ -1856,7 +1856,7 @@ GameObject:
   - component: {fileID: 1094369682}
   - component: {fileID: 1094369681}
   m_Layer: 0
-  m_Name: NavMesh Surface
+  m_Name: NavMesh Alue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 65c8c46a2f3c6144ba533414a348a6d2, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 53486b37ae68b134b962a8e131b86508, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1094369682
 Transform:
@@ -4796,7 +4796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5568963686758634071, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7568168267151027441, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
       propertyPath: m_TagString

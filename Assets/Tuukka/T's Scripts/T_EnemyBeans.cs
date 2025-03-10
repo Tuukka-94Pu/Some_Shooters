@@ -48,7 +48,7 @@ public class T_EnemyBeans : MonoBehaviour,IDamageable
     public void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.collider.name);
-        if (collision.collider.name ==  "Player")
+        if (collision.collider.name ==  "target")
         {
             Debug.Log("HIT!");
         }
