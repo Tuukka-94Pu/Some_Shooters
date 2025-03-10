@@ -1,4 +1,4 @@
-using Unity.Mathematics;
+
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,26 +7,39 @@ public class T_EnemyBeans : MonoBehaviour,IDamageable
 
 
     public float health = 100.0f;
+    private float targetdistance;
+    private int randomNumb;
+    private T_PlayerHealth damagePlayer;
     public GameObject droppedItem;
     public Transform Target;
-    private Rigidbody enemyRb;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
-        enemyRb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+       
+
+
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = Target.position;
 
+        targetdistance = Vector3.Distance(Target.position, agent.transform.position);
+        if(targetdistance <= 5) 
+        {
+            randomNumb = Random.Range(0, 10);
+           
 
-
+            if(randomNumb ==  3)
+            {
+                Instantiate(droppedItem,transform.position,transform.rotation);
+            }
+        }
     }
     public void TakeDamage(float damageAmount)
 
@@ -45,14 +58,9 @@ public class T_EnemyBeans : MonoBehaviour,IDamageable
         }
 
     }
-    public void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(collision.collider.name);
-        if (collision.collider.name ==  "Player")
-        {
-            Debug.Log("HIT!");
-        }
-    }
+    
+    
+        
 
 }
 

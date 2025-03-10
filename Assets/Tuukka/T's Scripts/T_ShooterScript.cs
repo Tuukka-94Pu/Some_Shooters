@@ -14,7 +14,7 @@ public class T_ShooterScript : MonoBehaviour
 
     public int ammoCount;
 
-    
+    public ParticleSystem muzzleFlash;
 
     public GameObject Pistol;
 
@@ -77,6 +77,7 @@ public class T_ShooterScript : MonoBehaviour
             damage = 25.0f;
             Shoot();
             Recoil(5,0.5f);
+            ammoCount--;
             ammoCount--;
         }
         
