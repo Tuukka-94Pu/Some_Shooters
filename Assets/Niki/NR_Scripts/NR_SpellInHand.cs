@@ -19,7 +19,7 @@ public class NR_SpellInHand : MonoBehaviour
     void Start()
     {
         playerCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        playerStats = GameObject.Find("Player").GetComponent<NR_PlayerStats>();
+        playerStats = GameObject.FindWithTag("Player").GetComponent<NR_PlayerStats>();
     }
 
     // Update is called once per frame

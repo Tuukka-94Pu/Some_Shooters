@@ -23,20 +23,21 @@ public class NR_Weapon : MonoBehaviour
     public float stunTime;
 
     private NR_PlayerStats playerStats;
+    private NR_MenuScript menuScript;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        menuScript = GameObject.FindWithTag("Player").GetComponent<NR_MenuScript>();
 
-        playerStats = GameObject.Find("Player").GetComponent<NR_PlayerStats>();
+        playerStats = GameObject.FindWithTag("Player").GetComponent<NR_PlayerStats>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && playerStats.dead == false)
+        if (Input.GetMouseButtonDown(0) && playerStats.dead == false && menuScript.menuOpen == false)
         {
             if (isAnimating == false)
             {

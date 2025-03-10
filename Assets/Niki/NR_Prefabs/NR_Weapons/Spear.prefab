@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 8566933223348021804}
   m_Layer: 0
   m_Name: Spear
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3484292638062483140}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.33455777, y: 0.5554381, z: 0.25966612, w: 0.7156348}
+  m_LocalRotation: {x: -0.3345589, y: 0.5554351, z: 0.25966483, w: 0.715637}
   m_LocalPosition: {x: 0.638, y: -0.099, z: 0.769}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -267,5 +267,5 @@ MonoBehaviour:
   animator: {fileID: 329736197820814502}
   swingLength: 1
   damage: 10
-  staminaChargeRate: 1
+  staminaChargeRate: 2.5
   stunTime: 0.5
