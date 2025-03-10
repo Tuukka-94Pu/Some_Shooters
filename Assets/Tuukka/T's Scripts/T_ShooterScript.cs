@@ -14,7 +14,7 @@ public class T_ShooterScript : MonoBehaviour
 
     public int ammoCount;
 
-    
+    public ParticleSystem muzzleFlash;
 
     public GameObject Pistol;
 
