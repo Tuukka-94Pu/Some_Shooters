@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
       propertyPath: m_TagString
@@ -159,6 +159,7 @@ MonoBehaviour:
   damage: 20
   staminaChargeRate: 5
   stunTime: 0.5
+  weaponPos: {fileID: 0}
 --- !u!65 &1992859535809110071
 BoxCollider:
   m_ObjectHideFlags: 0

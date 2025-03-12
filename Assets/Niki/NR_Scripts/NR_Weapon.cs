@@ -24,6 +24,8 @@ public class NR_Weapon : MonoBehaviour
 
     private NR_PlayerStats playerStats;
     private NR_MenuScript menuScript;
+
+    public Transform weaponPos;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

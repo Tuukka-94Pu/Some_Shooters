@@ -17,10 +17,9 @@ public class NR_PlayerStats : MonoBehaviour
 
     public float maxMana = 100f;
     public float mana = 100f;
-    public float spellCooldownFloat;
+    public float spellCooldownFloat = 0f;
     public float manaConsumables;
     public TextMeshProUGUI manaConsumableAmmount;
-
 
     public Image healthBar;
     public Image damageFlash;
@@ -38,12 +37,20 @@ public class NR_PlayerStats : MonoBehaviour
     public bool spellIsInHand;
     public NR_SpellInHand spellInHand;
 
+    public GameObject currentWeapon;
+    public GameObject equippedWeapon;
+    public NR_Weapon weaponScript;
+
+    public GameObject currentSpell;
+    public GameObject equippedSpell;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spellInHand = gameObject.GetComponentInChildren<NR_SpellInHand>();
         healingConsumableAmmount.text = "" + healingConsumables;
         manaConsumableAmmount.text = "" + manaConsumables;
+
+        
     }
 
     // Update is called once per frame
@@ -57,7 +64,7 @@ public class NR_PlayerStats : MonoBehaviour
             healingConsumableAmmount.text = "" + healingConsumables;
         }
 
-        if (Input.GetKeyDown(KeyCode.G) && manaConsumables > 0)
+        if (Input.GetKeyDown(KeyCode.C) && manaConsumables > 0)
         {
             ManaFill(20);
             manaConsumables--;
@@ -132,20 +139,70 @@ public class NR_PlayerStats : MonoBehaviour
     {
         if (spellInHand != null) { spellIsInHand = true; }
 
-        if (!spellIsInHand)
+        if (spellInHand != null)
         {
-            spellCooldownFloat = 0;
-        }
-        else if (!spellInHand.onCooldown)
-        {
-            spellCooldownFloat = spellInHand.cooldown;
-        }
+            
 
-        spellCooldownBar.fillAmount = spellCooldownFloat / spellInHand.cooldown;
+            spellCooldownBar.fillAmount = spellCooldownFloat / spellInHand.cooldown;
 
-        if (spellIsInHand && spellInHand.onCooldown == true)
+            if (spellInHand.onCooldown == true)
+            {
+                spellCooldownFloat += Time.deltaTime;
+
+                Debug.Log("Cooldown: " + spellCooldownFloat);
+            }
+        }
+        else
         {
-            spellCooldownFloat += Time.deltaTime;
+            spellCooldownFloat = 0f;
+            spellCooldownBar.fillAmount = spellCooldownFloat / 100f;
+        }
+    }
+
+    public void HealSpell()
+    {
+        if (mana > 30)
+        {
+            Heal(40);
+            mana -= 30;
+            manaBar.fillAmount = mana / maxMana;
+        }
+    }
+
+    public void SelectWeapon(GameObject weapon)
+    {
+
+        if (weapon != currentWeapon)
+        {
+            Destroy(equippedWeapon);
+            weaponScript = weapon.GetComponent<NR_Weapon>();
+            equippedWeapon = Instantiate(weapon, GameObject.Find("WeaponSpot").transform, weaponScript.weaponPos);
+            currentWeapon = equippedWeapon;
+            
+
+            stamina = 0;
+        }
+    }
+
+    public void SelectSpell(GameObject spell)
+    {
+        if (currentSpell == null || spellInHand.onCooldown == false) 
+        {
+
+            if (spell != currentSpell)
+            {
+                spellIsInHand = true;
+
+                Destroy(equippedSpell);
+                spellInHand = spell.GetComponent<NR_SpellInHand>();
+                equippedSpell = Instantiate(spell, GameObject.Find("SpellSpot").transform, spellInHand.spellTransform);
+                currentSpell = equippedSpell;
+                spellInHand.onCooldown = true;
+
+                StartCoroutine(spellInHand.SpellCooldown());
+                spellCooldownFloat = 0;
+                
+            }
         }
     }
 }

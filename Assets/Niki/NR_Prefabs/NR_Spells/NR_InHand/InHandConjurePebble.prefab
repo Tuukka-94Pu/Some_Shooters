@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 448284441291666300}
   m_Layer: 0
   m_Name: InHandConjurePebble
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,9 +100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeSpellPrefab: {fileID: 2540117369074675849, guid: 313b4dec3ffdf554188a8e2e8eb1fa06, type: 3}
+  menuScript: {fileID: 0}
   playerStats: {fileID: 0}
   playerCamera: {fileID: 0}
   meshRenderer: {fileID: 1643711520274178435}
   cooldown: 2
   onCooldown: 0
   manaCost: 1
+  spellTransform: {fileID: 5571136956952706878}
