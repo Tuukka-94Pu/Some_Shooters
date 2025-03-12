@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 6512960022451614294}
   - component: {fileID: 5411419646985472201}
   - component: {fileID: 3673580987399857338}
+  - component: {fileID: 5568963686758634071}
   - component: {fileID: 5165462788467521650}
   - component: {fileID: 5021381851625796664}
   - component: {fileID: 4027453261599855745}
@@ -305,6 +306,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &5568963686758634071
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568168267151027441}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5165462788467521650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +392,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   ammoCount: 0
-  Pistol: {fileID: 0}
-  Rifle: {fileID: 0}
-  OOA: {fileID: 0}
+  gun: {fileID: 0}
