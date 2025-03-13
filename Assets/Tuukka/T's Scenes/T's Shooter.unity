@@ -3744,7 +3744,6 @@ MonoBehaviour:
   ammoNumber: {fileID: 988032949}
   fragText: {fileID: 1510196553}
   typeText: {fileID: 1224575682}
-  healthText: {fileID: 324396748}
 --- !u!114 &1468474949
 MonoBehaviour:
   m_ObjectHideFlags: 0
