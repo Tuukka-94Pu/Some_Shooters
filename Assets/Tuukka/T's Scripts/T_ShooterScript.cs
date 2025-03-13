@@ -14,8 +14,6 @@ public class T_ShooterScript : MonoBehaviour
 
     public int ammoCount;
 
-    
-
     public GameObject Pistol;
 
     public GameObject Rifle;
@@ -28,6 +26,7 @@ public class T_ShooterScript : MonoBehaviour
 
     private string weapon = "Pistol";
 
+    private T_ParticleManager bloodSpat;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -72,11 +71,12 @@ public class T_ShooterScript : MonoBehaviour
             Recoil(4,0.3f);
             ammoCount --;
         }
-        if(Input.GetButtonDown("Fire1") && ammoCount > 0 && weapon == "Rifle")
+        if(Input.GetButtonDown("Fire1") && ammoCount > 1 && weapon == "Rifle")
         {
             damage = 25.0f;
             Shoot();
             Recoil(5,0.5f);
+            ammoCount--;
             ammoCount--;
         }
         
@@ -133,10 +133,13 @@ public class T_ShooterScript : MonoBehaviour
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range, shootingLayer))
 
         {
+            bloodSpat = GameObject.Find("Unity's Particle system, a great system").GetComponent<T_ParticleManager>();
+
+            bloodSpat.HitAnEnemy(hit.point);
 
             // Debuggausta, piirrell‰‰n drawray, kun osutaan kohteeseen
 
-            Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * range, Color.red, 2.0f);
+          //  Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * range, Color.red, 2.0f);
 
             // checkaa jos objekti on sellainen mihin voi osua
 
