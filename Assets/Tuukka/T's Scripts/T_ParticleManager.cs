@@ -25,6 +25,7 @@ public class T_ParticleManager : MonoBehaviour
     public void HitAnEnemy(Vector3 hitSpot)
     {
            Instantiate(impactEnemy, hitSpot, transform.rotation);
+      
     }
 
 

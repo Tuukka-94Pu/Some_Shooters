@@ -109,8 +109,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0196534, y: 1.0493916, z: 1.0067103}
-  m_Center: {x: -0.00018359993, y: -0.008101037, z: -0.000024932757}
+  m_Size: {x: 1.0564891, y: 1.0805581, z: 1.0295175}
+  m_Center: {x: 0.005417168, y: 0.007482187, z: 0.004322423}
 --- !u!54 &2528093644503589216
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -171,7 +171,6 @@ GameObject:
   - component: {fileID: 677106539087038897}
   - component: {fileID: 5503062181661743727}
   - component: {fileID: 8616383422101432656}
-  - component: {fileID: 1756536955276398220}
   m_Layer: 0
   m_Name: remoteGrenadeDisplay
   m_TagString: Untagged
@@ -247,24 +246,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1756536955276398220
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4831171723142306634}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9999999, y: 1, z: 1}
-  m_Center: {x: -0.00000023841858, y: -0.00000011920929, z: -0.00000047683716}
