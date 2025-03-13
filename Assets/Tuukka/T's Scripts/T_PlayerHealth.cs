@@ -19,7 +19,7 @@ public class T_PlayerHealth : MonoBehaviour
 
     }
 
-    public void TakeAHit(int damage)
+    public void  TakeAHit(int damage)
     {
         playerHP -= damage;
     }

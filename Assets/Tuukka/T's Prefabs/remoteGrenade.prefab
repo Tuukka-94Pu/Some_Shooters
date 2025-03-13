@@ -217,8 +217,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0196534, y: 1.0493916, z: 1.0067103}
+  m_Center: {x: -0.00018359993, y: -0.008101037, z: -0.000024932757}
 --- !u!54 &2528093644503589216
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -267,3 +267,4 @@ MonoBehaviour:
     m_Bits: 128
   type: Remote
   hasExploded: 0
+  smoke: {fileID: 6964202481907943648, guid: 4b566bcd884046f48ae2a9e7179723c4, type: 3}

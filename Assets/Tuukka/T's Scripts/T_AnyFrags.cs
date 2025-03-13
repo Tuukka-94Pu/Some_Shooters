@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class T_AnyFrags : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class T_AnyFrags : MonoBehaviour
     public float damageAmount = 50f;
     public LayerMask damageableLayer;
     public string type;
+    private T_ParticleManager call;
     public bool hasExploded = false;
+    public GameObject smoke;
  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,7 +24,9 @@ public class T_AnyFrags : MonoBehaviour
     void Update()
     {
         GameObject source = GameObject.Find("bean");
+        GameObject partics = GameObject.Find("Unity's Particle system, a great system");
         type = source.GetComponent<T_FragOut>().type;
+        call = partics.GetComponent<T_ParticleManager>();
 
         if (type == "Pipe")
         {
@@ -45,8 +50,11 @@ public class T_AnyFrags : MonoBehaviour
     void Explode()
 
     {
-
         if (hasExploded) return;
+
+        
+        call.SpawnSmoke(transform.position);
+
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius, damageableLayer);
         foreach (Collider nearbyObject in colliders)

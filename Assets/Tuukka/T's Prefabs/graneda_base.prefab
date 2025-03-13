@@ -242,6 +242,7 @@ MonoBehaviour:
     m_Bits: 192
   type: Pipe
   hasExploded: 0
+  smoke: {fileID: 6964202481907943648, guid: 4b566bcd884046f48ae2a9e7179723c4, type: 3}
 --- !u!54 &2628904916635069738
 Rigidbody:
   m_ObjectHideFlags: 0
