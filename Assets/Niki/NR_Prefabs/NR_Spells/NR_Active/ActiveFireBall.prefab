@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313e8063981f1904a943b5eb6f03b37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyForce: 10
+  flyForce: 15
   blastRadius: 5
   explosionForce: 70000
   damage: 100

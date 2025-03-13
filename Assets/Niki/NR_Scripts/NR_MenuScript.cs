@@ -1,15 +1,24 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NR_MenuScript : MonoBehaviour
 {
     public GameObject menu;
     public GameObject UI;
     public GameObject baseMenu;
-    public GameObject spellMenu;
+    public GameObject magicMenu;
     public GameObject equipmentMenu;
     public GameObject weaponMenu;
     public GameObject handSpellMenu;
 
+    
+    
+
+    public bool swordUnlocked = false;
+    public bool spearUnlocked = false;
+    
+
+    
     public bool menuOpen;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,6 +42,8 @@ public class NR_MenuScript : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+        
     }
 
 
@@ -40,12 +51,14 @@ public class NR_MenuScript : MonoBehaviour
     {
         menu.SetActive(true);
         baseMenu.SetActive(false);
+
+        
     }
 
     public void BackToBaseMenu()
     {
         baseMenu.SetActive(true);
-        spellMenu.SetActive(false);
+        magicMenu.SetActive(false);
         equipmentMenu.SetActive(false);
     }
 
@@ -61,4 +74,6 @@ public class NR_MenuScript : MonoBehaviour
         weaponMenu.SetActive(false);
         handSpellMenu.SetActive(false);
     }
+
+    
 }

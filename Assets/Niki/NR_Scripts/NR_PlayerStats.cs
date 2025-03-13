@@ -44,6 +44,8 @@ public class NR_PlayerStats : MonoBehaviour
     public GameObject currentSpell;
     public GameObject equippedSpell;
 
+    public GameObject spellWarningText;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -149,13 +151,19 @@ public class NR_PlayerStats : MonoBehaviour
             {
                 spellCooldownFloat += Time.deltaTime;
 
-                Debug.Log("Cooldown: " + spellCooldownFloat);
+                spellWarningText.SetActive(true);
+
+            }
+            else
+            {
+                spellWarningText.SetActive(false);
             }
         }
         else
         {
             spellCooldownFloat = 0f;
             spellCooldownBar.fillAmount = spellCooldownFloat / 100f;
+
         }
     }
 
@@ -177,6 +185,7 @@ public class NR_PlayerStats : MonoBehaviour
             Destroy(equippedWeapon);
             weaponScript = weapon.GetComponent<NR_Weapon>();
             equippedWeapon = Instantiate(weapon, GameObject.Find("WeaponSpot").transform, weaponScript.weaponPos);
+            weaponScript = equippedWeapon.GetComponent<NR_Weapon>();
             currentWeapon = equippedWeapon;
             
 
@@ -194,13 +203,17 @@ public class NR_PlayerStats : MonoBehaviour
                 spellIsInHand = true;
 
                 Destroy(equippedSpell);
+
                 spellInHand = spell.GetComponent<NR_SpellInHand>();
-                equippedSpell = Instantiate(spell, GameObject.Find("SpellSpot").transform, spellInHand.spellTransform);
+                equippedSpell = Instantiate(spell, GameObject.Find("SpellSpot").transform);
+                spellInHand = equippedSpell.GetComponent<NR_SpellInHand>();
+
                 currentSpell = equippedSpell;
                 spellInHand.onCooldown = true;
+                spellCooldownFloat = 0;
 
                 StartCoroutine(spellInHand.SpellCooldown());
-                spellCooldownFloat = 0;
+                
                 
             }
         }
