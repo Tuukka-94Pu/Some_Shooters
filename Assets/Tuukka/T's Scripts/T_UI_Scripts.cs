@@ -8,11 +8,13 @@ public class T_UI_Scripts : MonoBehaviour
     public TMP_Text ammoNumber;
     public TMP_Text fragText;
     public TMP_Text typeText;
+    public TMP_Text healthtext;
 
     private int scoreValue;
     private int ammo;
     private int fragAmount;
     private string fragType;
+    private int healthAmount;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,9 +32,11 @@ public class T_UI_Scripts : MonoBehaviour
         ammo = source.GetComponent<T_ShooterScript>().ammoCount;
         fragAmount = source.GetComponent<T_FragOut>().fragCount;
         fragType = source.GetComponent<T_FragOut>().type;
+        healthAmount = source.GetComponent<T_PlayerHealth>().playerHP;
         scoreNumber.text = scoreValue.ToString();
         ammoNumber.text = ammo.ToString();
         fragText.text = fragAmount.ToString();
+        healthtext.text = healthAmount.ToString();
         
         if (ammo == 0)
         {
@@ -58,5 +62,21 @@ public class T_UI_Scripts : MonoBehaviour
         {
             typeText.text = "Remote bomb";
         }
+
+        if(healthAmount > 50)
+        {
+            healthtext.color = new Color(0, 255, 0);
+        }
+        if(healthAmount >= 25 && healthAmount <= 50)
+        {
+            healthtext.color = new Color(0, 255, 255);
+        }
+        if (healthAmount < 25)
+        {
+            healthtext.color = new Color(255 ,0,0,0);
+        }
+
+
+
     }
 }

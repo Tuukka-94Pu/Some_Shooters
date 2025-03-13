@@ -3744,6 +3744,7 @@ MonoBehaviour:
   ammoNumber: {fileID: 988032949}
   fragText: {fileID: 1510196553}
   typeText: {fileID: 1224575682}
+  healthtext: {fileID: 324396748}
 --- !u!114 &1468474949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5925,10 +5926,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: spoiled_bean
       objectReference: {fileID: 0}
-    - target: {fileID: 7067739327736038963, guid: e5cf86278db3c1e47b2134f091358a39, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6006,7 +6003,7 @@ PrefabInstance:
     - target: {fileID: 362869824146925396, guid: eb4e63d32667366439f4551c651bc12f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e88847f023e90e0448c523071a10682c, type: 2}
+      objectReference: {fileID: 2100000, guid: 03543ae2caf6b62498998c669e32ca98, type: 2}
     - target: {fileID: 4415197542994817908, guid: eb4e63d32667366439f4551c651bc12f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
