@@ -5,7 +5,7 @@ using UnityEngine;
 public class NR_ConjurePebble : MonoBehaviour
 {
 
-    public float flyForce = 10f;
+    public float flyForce = 50f;
     public float damage = 10f;
     public float stunTime = 0.2f;
 

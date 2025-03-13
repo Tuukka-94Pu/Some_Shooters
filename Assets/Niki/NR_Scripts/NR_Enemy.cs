@@ -29,6 +29,8 @@ public class NR_Enemy : MonoBehaviour
 
     public void TakeDamage(float damage, float stunTime)
     {
+        NR_DamageNumberGenerator.current.CreatePopUp(transform.position, damage.ToString());
+
         health -= damage;
         Debug.Log("health: " + health);
         animator.Play("Color", -1, 0f);

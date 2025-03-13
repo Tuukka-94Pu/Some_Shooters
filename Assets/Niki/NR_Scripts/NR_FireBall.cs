@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class NR_FireBall : MonoBehaviour
 {
-    public float flyForce = 10f;
+    public float flyForce = 30f;
     public float blastRadius = 5f;
     public float explosionForce = 700f;
     public float damage = 100f;

@@ -149,6 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97087621b812be429f7dcfdf6fe482a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyForce: 10
+  flyForce: 20
   damage: 10
   stunTime: 0.2

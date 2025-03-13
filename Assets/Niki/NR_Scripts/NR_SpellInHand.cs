@@ -17,7 +17,7 @@ public class NR_SpellInHand : MonoBehaviour
 
     public float manaCost;
 
-    public Transform spellTransform;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,7 +55,6 @@ public class NR_SpellInHand : MonoBehaviour
         Instantiate(activeSpellPrefab, playerCamera.transform.position + playerCamera.transform.forward, Quaternion.identity);
         playerStats.mana = playerStats.mana - manaCost;
         playerStats.manaBar.fillAmount = playerStats.mana / playerStats.maxMana;
-        Debug.Log("mana: " + playerStats.mana);
 
         StartCoroutine(SpellCooldown());
     }
