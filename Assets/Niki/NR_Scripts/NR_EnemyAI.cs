@@ -17,8 +17,8 @@ public class NR_EnemyAI : MonoBehaviour
 
     public bool attacking = false;
     public bool attackHit = false;
-    public float attackStartup =  0.13f;
-    public float attackDuration = 0.2f;
+    
+    public float attackDuration = 0.33f;
     public float attackRecovery = 0.75f;
     public float attackCooldownTime = 0.5f;
 
@@ -41,7 +41,7 @@ public class NR_EnemyAI : MonoBehaviour
     void Start()
     {
         enemyScript = GetComponent<NR_Enemy>();
-        player = GameObject.Find("Player");
+        player = GameObject.FindWithTag("Player");
         playerStats = player.GetComponent<NR_PlayerStats>();
         agent = GetComponent<NavMeshAgent>();
 
@@ -86,7 +86,7 @@ public class NR_EnemyAI : MonoBehaviour
 
             if (distanceFromPlayer < attackRange && angleToPlayer < 50 && attackCooldown == false)
             {
-                StartCoroutine(Attack(attackStartup, attackDuration, attackRecovery, attackCooldownTime));
+                StartCoroutine(Attack(attackDuration, attackRecovery, attackCooldownTime));
 
                 Debug.Log("Attack");
             }
@@ -121,7 +121,7 @@ public class NR_EnemyAI : MonoBehaviour
 
             if (distanceFromPlayer < attackRange && angleToPlayer < 50 && attackCooldown == false)
             {
-                StartCoroutine(Attack(0.13f, 0.2f, 0.75f, 0.5f));
+                StartCoroutine(Attack(attackDuration, attackRecovery, attackCooldownTime));
 
                 Debug.Log("Attack");
             }
@@ -139,23 +139,20 @@ public class NR_EnemyAI : MonoBehaviour
         
     }
 
-    IEnumerator Attack(float startUp, float duration, float recovery, float cooldown)
+    IEnumerator Attack(float duration, float recovery, float cooldown)
     {
         
 
         attacking = true;
         enemyScript.animator.SetBool("attacking", true);
-        yield return new WaitForSeconds(startUp);
 
-        hitbox.enabled = true;
         yield return new WaitForSeconds(duration);
         enemyScript.animator.SetBool("attacking", false);
-        hitbox.enabled = false;
+        
         yield return new WaitForSeconds(recovery);
         attacking = false;
-        
-
         attackCooldown = true;
+
         yield return new WaitForSeconds(cooldown);
         attackCooldown = false;
         attackHit = false;

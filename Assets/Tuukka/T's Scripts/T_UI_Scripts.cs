@@ -1,28 +1,23 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
+
 
 public class T_UI_Scripts : MonoBehaviour
 {
-    // All the texts to use in this script
     public TMP_Text scoreNumber;
     public TMP_Text ammoNumber;
     public TMP_Text fragText;
     public TMP_Text typeText;
-    public TMP_Text healthText;
 
-    // All the variables to be used
     private int scoreValue;
     private int ammo;
     private int fragAmount;
     private string fragType;
-    private int healthAmount;
-   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         
 
     }
@@ -30,21 +25,15 @@ public class T_UI_Scripts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Assing bean as the source of all the values used
         GameObject source = GameObject.Find("bean");
         scoreValue = source.GetComponent<T_CollectblePickup>().score;
         ammo = source.GetComponent<T_ShooterScript>().ammoCount;
         fragAmount = source.GetComponent<T_FragOut>().fragCount;
         fragType = source.GetComponent<T_FragOut>().type;
-        healthAmount = source.GetComponent<T_PlayerHealth>().playerHP;
-
-
         scoreNumber.text = scoreValue.ToString();
         ammoNumber.text = ammo.ToString();
         fragText.text = fragAmount.ToString();
-        healthText.text = healthAmount.ToString();
-
-        //ammo colors
+        
         if (ammo == 0)
         {
             ammoNumber.color = new Color(255, 0, 0);
@@ -61,22 +50,6 @@ public class T_UI_Scripts : MonoBehaviour
         {
             fragText.color = new Color(0,255,0);
         }
-
-        //Health text color
-        if(healthAmount >= 50)
-        {
-            healthText.color = new Color(0, 255, 0);
-        }
-        if(healthAmount > 25 && healthAmount < 50)
-        {
-            healthText.color = new Color (255, 255, 0);
-        }
-        if(healthAmount < 25)
-        {
-            healthText.color = new Color (255,0, 0);
-        }
-
-            //Grenade type indicator
         if(fragType == "Pipe")
         {
             typeText.text = "Timed frags";

@@ -13,8 +13,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Transform cameraTransform;
 
-    public Rigidbody rb;
-
     private NR_PlayerStats playerStats;
 
     public float groundDistance = 0.4f;
@@ -27,9 +25,11 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded;
 
-    private float gravity = -9.81f; // saatat joutua t‰t‰ s‰‰t‰m‰‰n fysiikan simuloimiseksi
+    private float gravity = -17f; // saatat joutua t‰t‰ s‰‰t‰m‰‰n fysiikan simuloimiseksi
 
     public float staminaDepletionRate = 3f;
+
+    private NR_MenuScript menuScript;
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         cameraTransform = Camera.main.transform;
         playerStats = GetComponent<NR_PlayerStats>();
 
-        rb = GetComponent<Rigidbody>();
+        menuScript = GetComponent<NR_MenuScript>();
 
         if (groundCheck == null)
         {
@@ -49,10 +49,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (playerStats.dead == false)
+        if (playerStats.dead == false && menuScript.menuOpen == false)
         {
             MovePlayer();
         }
+
+        velocity.y += gravity * Time.deltaTime;
+        characterController.Move(velocity * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -96,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
         characterController.Move(movement);
 
-        velocity.y += gravity * Time.deltaTime;
-        characterController.Move(velocity * Time.deltaTime);
+        
+        
     }
 }

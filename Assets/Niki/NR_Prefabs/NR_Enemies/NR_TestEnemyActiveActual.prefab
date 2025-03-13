@@ -73,11 +73,14 @@ MonoBehaviour:
   movementSpeed: 1
   attacking: 0
   attackHit: 0
+  attackDuration: 0.33
+  attackRecovery: 0.75
+  attackCooldownTime: 0.5
   enemyScript: {fileID: 8705294583204804589}
   playerStats: {fileID: 0}
   hitbox: {fileID: 6468919966893561381}
   attackCooldown: 0
-  attackRange: 2
+  attackRange: 2.5
   damage: 20
   distanceFromPlayer: 0
 --- !u!136 &7906055346176381879

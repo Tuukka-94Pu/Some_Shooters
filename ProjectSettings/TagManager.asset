@@ -10,6 +10,7 @@ TagManager:
   - ammoPickup
   - fragPickup
   - remotes
+  - Spell
   layers:
   - Default
   - TransparentFX

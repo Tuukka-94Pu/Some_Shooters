@@ -6,7 +6,7 @@ public class NR_ConsumablePickUp : MonoBehaviour, IPickUpable
 
     public void PickUp()
     {
-        NR_PlayerStats playerStats = GameObject.Find("Player").GetComponent<NR_PlayerStats>();
+        NR_PlayerStats playerStats = GameObject.FindWithTag("Player").GetComponent<NR_PlayerStats>();
         playerStats.healingConsumables += 1;
         playerStats.healingConsumableAmmount.text = "" + playerStats.healingConsumables;
         Destroy(gameObject);

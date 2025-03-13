@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 1578554191025208384}
   - component: {fileID: 5274711820712096127}
   - component: {fileID: 134607906395939987}
-  - component: {fileID: 3052794065074469224}
   m_Layer: 7
   m_Name: spoiled_bean
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.49, y: 0.688, z: -3.7198672}
-  m_LocalScale: {x: 0.8, y: 0.74599236, z: 0.8}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -127,7 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   droppedItem: {fileID: 5872866442459920245, guid: b8c871363cd563b41827fccfe7ee44e9, type: 3}
-  Target: {fileID: 0}
 --- !u!54 &134607906395939987
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,29 +149,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &3052794065074469224
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7067739327736038963}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 2
-  m_Acceleration: 2
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 5
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4

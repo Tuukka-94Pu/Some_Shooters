@@ -17,7 +17,7 @@ public class NR_ManaConsumable : MonoBehaviour, IPickUpable
 
     public void PickUp()
     {
-        NR_PlayerStats playerStats = GameObject.Find("Player").GetComponent<NR_PlayerStats>();
+        NR_PlayerStats playerStats = GameObject.FindWithTag("Player").GetComponent<NR_PlayerStats>();
         playerStats.manaConsumables += 1;
         playerStats.manaConsumableAmmount.text = "" + playerStats.manaConsumables;
         Destroy(gameObject);

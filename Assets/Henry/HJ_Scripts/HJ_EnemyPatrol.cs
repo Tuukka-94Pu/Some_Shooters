@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using UnityEngine.AI;
 
 namespace HJ
@@ -32,7 +31,9 @@ namespace HJ
         private void Update()
         {
             if (agent.remainingDistance < 0.5f)
+            {
                 GoToNextPoint();
+            }
         }
     }
 }
