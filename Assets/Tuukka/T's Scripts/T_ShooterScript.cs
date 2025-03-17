@@ -28,6 +28,8 @@ public class T_ShooterScript : MonoBehaviour
 
     private T_ParticleManager bloodSpat;
 
+    private bool source;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,49 +40,54 @@ public class T_ShooterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
 
-    { 
-
-        if (ammoCount == 0)
-        {
-            OOA.SetActive(true);
-        }
-        else
-        {
-            OOA.SetActive(false);
-        }
-        // Switch weapon if the weapon to be switched to is not the current one
-        if (Input.GetKeyDown(KeyCode.Alpha1)&& weapon != "Pistol")
-        {
-            Rifle.SetActive(false);
-            Pistol.SetActive(true);
-            weapon = "Pistol";
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && weapon != "Rifle")
-        {
-            Pistol.SetActive(false);
-            Rifle.SetActive(true);
-            weapon = "Rifle";
-        }
-
-        //Fire the gun, weapon type determines damage and recoil
-        if (Input.GetButtonDown("Fire1")&& ammoCount > 0 && weapon == "Pistol")
-
-        {
-            damage = 10.0f; 
-            Shoot();
-            Recoil(4,0.3f);
-            ammoCount --;
-        }
-        if(Input.GetButtonDown("Fire1") && ammoCount > 1 && weapon == "Rifle")
-        {
-            damage = 25.0f;
-            Shoot();
-            Recoil(5,0.5f);
-            ammoCount--;
-            ammoCount--;
-        }
+    {
+        source = GetComponent<T_PlayerHealth>().playerAlive;
         
+        if (source == true)
 
+        {
+
+            if (ammoCount == 0)
+            {
+                OOA.SetActive(true);
+            }
+            else
+            {
+                OOA.SetActive(false);
+            }
+            // Switch weapon if the weapon to be switched to is not the current one
+            if (Input.GetKeyDown(KeyCode.Alpha1) && weapon != "Pistol")
+            {
+                Rifle.SetActive(false);
+                Pistol.SetActive(true);
+                weapon = "Pistol";
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2) && weapon != "Rifle")
+            {
+                Pistol.SetActive(false);
+                Rifle.SetActive(true);
+                weapon = "Rifle";
+            }
+
+            //Fire the gun, weapon type determines damage and recoil
+            if (Input.GetButtonDown("Fire1") && ammoCount > 0 && weapon == "Pistol")
+
+            {
+                damage = 10.0f;
+                Shoot();
+                Recoil(4, 0.3f);
+                ammoCount--;
+            }
+            if (Input.GetButtonDown("Fire1") && ammoCount > 1 && weapon == "Rifle")
+            {
+                damage = 25.0f;
+                Shoot();
+                Recoil(5, 0.5f);
+                ammoCount--;
+                ammoCount--;
+            }
+
+        }
     }
 
     public void addAmmo()

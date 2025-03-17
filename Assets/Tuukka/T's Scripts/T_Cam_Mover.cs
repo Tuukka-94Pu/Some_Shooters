@@ -8,6 +8,8 @@ public class T_Cam_Mover : MonoBehaviour
 
     private float xRotation = 0.0f;
 
+    private bool source;
+
     private void Start()
 
     {
@@ -21,8 +23,13 @@ public class T_Cam_Mover : MonoBehaviour
     private void Update()
 
     {
+        source = GameObject.Find("bean").GetComponent<T_PlayerHealth>().playerAlive;
 
-        RotateCamera();
+        if (source == true)
+        {
+            RotateCamera();
+        }
+       
 
     }
 

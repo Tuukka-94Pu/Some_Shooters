@@ -9,6 +9,8 @@ public class T_UI_Scripts : MonoBehaviour
     public TMP_Text fragText;
     public TMP_Text typeText;
     public TMP_Text healthtext;
+    public GameObject Gameover;
+
 
     private int scoreValue;
     private int ammo;
@@ -69,11 +71,16 @@ public class T_UI_Scripts : MonoBehaviour
         }
         if(healthAmount >= 25 && healthAmount <= 50)
         {
-            healthtext.color = new Color(0, 255, 255);
+            healthtext.color = new Color(255, 255, 0);
         }
         if (healthAmount < 25)
         {
-            healthtext.color = new Color(255 ,0,0,0);
+            healthtext.color = new Color(255 ,0,0);
+           
+        }
+        if(healthAmount <= 0)
+        {
+            Gameover.SetActive(true);
         }
 
 

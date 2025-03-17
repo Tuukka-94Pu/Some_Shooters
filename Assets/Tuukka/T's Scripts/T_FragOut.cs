@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class T_FragOut : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class T_FragOut : MonoBehaviour
     public int fragCount = 2;
     public GameObject OOF;
     public string type;
+
+    private bool source;
     private void Awake()
 
     {
@@ -29,40 +32,45 @@ public class T_FragOut : MonoBehaviour
     void Update()
 
     {
-        if(Input.GetKeyUp(KeyCode.Tab) ) 
+        source = GameObject.Find("bean").GetComponent<T_PlayerHealth>().playerAlive;
+
+        if (source == true)
         {
-            if (type == "Remote" && GameObject.FindGameObjectWithTag("remotes") == null)
+            if (Input.GetKeyUp(KeyCode.Tab))
             {
-                type = "Pipe";
+                if (type == "Remote" && GameObject.FindGameObjectWithTag("remotes") == null)
+                {
+                    type = "Pipe";
+                }
+                else
+                {
+                    type = "Remote";
+                }
+            }
+
+
+            if (fragCount == 0)
+            {
+                OOF.SetActive(true);
             }
             else
             {
-                type = "Remote";
+                OOF.SetActive(false);
             }
-        }
-        
-
-        if(fragCount == 0)
-        {
-            OOF.SetActive(true);
-        }
-        else
-        {
-            OOF.SetActive(false);
-        }
 
 
 
 
 
 
-        if (Input.GetButtonDown("Fire2") && pipeGrenade != null && fragCount > 0)
+            if (Input.GetButtonDown("Fire2") && pipeGrenade != null && fragCount > 0)
 
-        {
-            fragCount--;
-            
-            ThrowGrenade();
+            {
+                fragCount--;
 
+                ThrowGrenade();
+
+            }
         }
     }
     void ThrowGrenade()

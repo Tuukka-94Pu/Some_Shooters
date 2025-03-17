@@ -12,6 +12,8 @@ public class T_MoveThePlayer : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundLayer;
     public Transform groundCheck;
+    private bool source;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,8 +38,14 @@ public class T_MoveThePlayer : MonoBehaviour
     void Update()
     {
         {
+            source = GetComponent<T_PlayerHealth>().playerAlive;
 
-            MovePlayer();
+
+            if (source == true)
+            {
+                MovePlayer();
+            }
+            
 
         }
 
