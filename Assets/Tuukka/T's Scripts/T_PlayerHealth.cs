@@ -22,15 +22,18 @@ public class T_PlayerHealth : MonoBehaviour
 
         if (playerHP <= 0)
         {
+            //When player health is zero or lower unlock cursor and set player to be dead
             Cursor.lockState = CursorLockMode.None;
            playerAlive = false;
+            //this variable is read in all scripts responsible for input
         }
-
+        //Debug tool
         if (Input.GetKeyDown(KeyCode.K))
         {
             playerHP -= 10;
         }
     }
+    //Only enemies shouldd call this
     public void  TakeAHit(int damage)
     {
         playerHP -= damage;
