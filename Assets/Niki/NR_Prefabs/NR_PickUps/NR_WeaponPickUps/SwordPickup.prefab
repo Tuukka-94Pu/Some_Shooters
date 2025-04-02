@@ -64,9 +64,37 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1599826595754709761, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
       propertyPath: m_Name
       value: SwordPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75,6 +103,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
       insertIndex: -1
       addedObject: {fileID: 301525699852151297}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 646619876972650455}
   m_SourcePrefab: {fileID: 100100000, guid: 1d81da00800d5ca4c8cf090193ee7681, type: 3}
 --- !u!1 &1233307197808166311 stripped
 GameObject:
@@ -100,5 +131,19 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 14.749976, z: 1}
-  m_Center: {x: 0, y: 3.0286155, z: -0.000003549371}
+  m_Size: {x: 3.1720986, y: 15.321021, z: 2.7033463}
+  m_Center: {x: -0.14261246, y: 2.7431235, z: -0.026478177}
+--- !u!114 &646619876972650455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233307197808166311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3ca8c85ad4bc7408371ba470a46c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 1
+  weapon: {fileID: 4787545315472653912, guid: 135d1ca71f4c08e4997994f5c36ef521, type: 3}

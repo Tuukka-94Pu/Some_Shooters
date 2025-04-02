@@ -7394,8 +7394,6 @@ MonoBehaviour:
   equipmentMenu: {fileID: 986523597246806099}
   weaponMenu: {fileID: 1161523765249892318}
   handSpellMenu: {fileID: 4203104025376934228}
-  swordUnlocked: 0
-  spearUnlocked: 0
   menuOpen: 0
 --- !u!114 &3412682978885837869
 MonoBehaviour:
@@ -7409,8 +7407,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3784636a9be4a743b14243e36c7cc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordButton: {fileID: 0}
-  spearButton: {fileID: 0}
+  swordButton: {fileID: 5998630322513694063}
+  spearButton: {fileID: 5151280440267668580}
+  pebbleButton: {fileID: 7000990521681673759}
+  fireballButton: {fileID: 7707129631484482411}
+  swordText: {fileID: 245901961384471092}
+  spearText: {fileID: 343106545488029557}
+  pebbleText: {fileID: 461048890700701674}
+  fireballText: {fileID: 1283772430097039351}
+  swordUnlocked: 0
+  spearUnlocked: 0
+  pebbleUnlocked: 0
+  fireballUnlocked: 0
 --- !u!1 &8967904816305057958
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,14 +10,6 @@ public class NR_MenuScript : MonoBehaviour
     public GameObject equipmentMenu;
     public GameObject weaponMenu;
     public GameObject handSpellMenu;
-
-    
-    
-
-    public bool swordUnlocked = false;
-    public bool spearUnlocked = false;
-    
-
     
     public bool menuOpen;
 
@@ -39,6 +31,9 @@ public class NR_MenuScript : MonoBehaviour
         {
             menu.SetActive(false);
             menuOpen = false;
+
+            BackToEquipmentMenu();
+            BackToBaseMenu();
 
             Cursor.lockState = CursorLockMode.Locked;
         }

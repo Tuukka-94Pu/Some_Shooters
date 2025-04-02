@@ -1,10 +1,23 @@
 using UnityEngine;
 using static NR_PickUp;
 
-public class NR_WeaponPickUp : MonoBehaviour, IPickUpable
+public class NR_SpellPickUp : MonoBehaviour, IPickUpable
 {
+
     public int index;
-    public GameObject weapon;
+    public GameObject spell;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     public void PickUp()
     {
@@ -12,25 +25,25 @@ public class NR_WeaponPickUp : MonoBehaviour, IPickUpable
 
         if (index == 1)
         {
-            if (!unlockManager.swordUnlocked)
+            if (!unlockManager.pebbleUnlocked)
             {
                 NR_PlayerStats playerStats = GameObject.FindWithTag("Player").GetComponent<NR_PlayerStats>();
 
-                playerStats.SelectWeapon(weapon);
+                playerStats.SelectSpell(spell);
             }
 
-            unlockManager.swordUnlocked = true;
+            unlockManager.pebbleUnlocked = true;
         }
         if (index == 2)
         {
-            if (!unlockManager.spearUnlocked)
+            if (!unlockManager.fireballUnlocked)
             {
                 NR_PlayerStats playerStats = GameObject.FindWithTag("Player").GetComponent<NR_PlayerStats>();
 
-                playerStats.SelectWeapon(weapon);
+                playerStats.SelectSpell(spell);
             }
 
-            unlockManager.spearUnlocked = true;
+            unlockManager.fireballUnlocked = true;
         }
 
         Destroy(gameObject);
