@@ -71,4 +71,8 @@ public class NR_MenuScript : MonoBehaviour
     }
 
     
+    public void QuitButton()
+    {
+        Application.Quit();
+    }
 }
