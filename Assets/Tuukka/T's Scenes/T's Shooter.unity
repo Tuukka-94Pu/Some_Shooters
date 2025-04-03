@@ -2188,6 +2188,16 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!1 &854591342 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7843820247800649283, guid: 5b7c2deaa4a570f48a4a2ec03fca3a3d, type: 3}
+  m_PrefabInstance: {fileID: 509248538778982075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &854591343 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7980559424812440418, guid: 5b7c2deaa4a570f48a4a2ec03fca3a3d, type: 3}
+  m_PrefabInstance: {fileID: 509248538778982075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &855498991
 GameObject:
   m_ObjectHideFlags: 0
@@ -5221,6 +5231,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoke: {fileID: 6964202481907943648, guid: 4b566bcd884046f48ae2a9e7179723c4, type: 3}
   impactEnemy: {fileID: 802321868399917128, guid: 57222bd620c03964cab3e07196cea6aa, type: 3}
+  Muzzlebang: {fileID: 206073307815398375, guid: 87aa345d40710564b88362c28477996e, type: 3}
+  muzzleFlashPoint: {fileID: 854591342}
+  muzzleLight: {fileID: 2179953322832969992, guid: 9079a44628cf29244abd1a353189a84c, type: 3}
 --- !u!1 &1752089345
 GameObject:
   m_ObjectHideFlags: 0
@@ -6076,12 +6089,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 330616297}
     - target: {fileID: 4027453261599855745, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
+      propertyPath: muzzleEnd
+      value: 
+      objectReference: {fileID: 854591343}
+    - target: {fileID: 4027453261599855745, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
       propertyPath: muzzleFlash
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4027453261599855745, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
       propertyPath: shootingLayer.m_Bits
-      value: 192
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 5165462788467521650, guid: c56c48a9f977e6147b4885dd513de01e, type: 3}
       propertyPath: groundLayer.m_Bits

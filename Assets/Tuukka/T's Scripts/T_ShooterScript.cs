@@ -28,6 +28,8 @@ public class T_ShooterScript : MonoBehaviour
 
     private T_ParticleManager bloodSpat;
 
+    private T_ParticleManager Gunflash;
+
     private bool source;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,12 +37,14 @@ public class T_ShooterScript : MonoBehaviour
     {
         ammoCount = 10;
         coroutine = waitForRecoil(2, 0);
+
     }
 
     // Update is called once per frame
     void Update()
 
     {
+        Gunflash = GameObject.Find("Unity's Particle system, a great system").GetComponent<T_ParticleManager>();  
         source = GetComponent<T_PlayerHealth>().playerAlive;
         
         if (source == true)
@@ -134,6 +138,7 @@ public class T_ShooterScript : MonoBehaviour
     void Shoot()
 
     {
+        Gunflash.GunFire();
 
         RaycastHit hit;
 
