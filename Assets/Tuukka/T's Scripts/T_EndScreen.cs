@@ -26,7 +26,7 @@ public class T_menuScript : MonoBehaviour
 
     public void Click()
     {
-        Debug.Log("Yes");
+        SceneManager.LoadScene("T's Shooters menu");
     }
     public void ResetMap()
     {
