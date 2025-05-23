@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NR_MenuScript : MonoBehaviour
@@ -29,13 +30,7 @@ public class NR_MenuScript : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Tab) && menuOpen == true)
         {
-            menu.SetActive(false);
-            menuOpen = false;
-
-            BackToEquipmentMenu();
-            BackToBaseMenu();
-
-            Cursor.lockState = CursorLockMode.Locked;
+            CloseMenu();
         }
 
         
@@ -73,6 +68,17 @@ public class NR_MenuScript : MonoBehaviour
     
     public void QuitButton()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
+    }
+
+    public void CloseMenu()
+    {
+        menu.SetActive(false);
+        menuOpen = false;
+
+        BackToEquipmentMenu();
+        BackToBaseMenu();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

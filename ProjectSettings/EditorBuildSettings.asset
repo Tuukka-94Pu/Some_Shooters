@@ -9,6 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: dde732e377e335d44b94a7d6b34e7d3c
+  - enabled: 1
+    path: Assets/Henry/HJ_Scenes/HJ_Scene1.unity
+    guid: 25c8ef067a4971645b1ca330670f832c
+  - enabled: 1
+    path: Assets/Niki/NR_Scenes/NR_SceneLevel.unity
+    guid: 321dc9e3918676740851b31309c2119c
+  - enabled: 1
+    path: Assets/Niki/NR_Scenes/NR_WinScene.unity
+    guid: 6f8470f66ca160943927e9ad62b3e7d2
+  - enabled: 1
+    path: Assets/Niki/NR_Scenes/NR_Scene1.unity
+    guid: 2b8600de7d77f9842a80a2041a3edd82
+  - enabled: 1
     path: Assets/Tuukka/T's Scenes/T's Shooters menu.unity
     guid: 6532bc39a37c346478399501003bc2cf
   - enabled: 1

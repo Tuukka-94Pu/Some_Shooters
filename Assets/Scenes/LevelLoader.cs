@@ -1,10 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NR_LevelLoader : MonoBehaviour
+public class LevelLoader : MonoBehaviour
 {
-
-
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,22 +17,8 @@ public class NR_LevelLoader : MonoBehaviour
         
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            LoadNextLevel();
-        }
-    }
-
-
     public void LoadLevel(int levelToLoad)
     {
         SceneManager.LoadScene(levelToLoad);
-    }
-
-    public void LoadNextLevel()
-    {
-        LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
